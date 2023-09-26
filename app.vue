@@ -1,5 +1,11 @@
+<script>
+// This will work in both `<script setup>` and `<script>`
+definePageMeta({});
+</script>
 <template>
   <div>
-    <h1>Coming Soon</h1>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>

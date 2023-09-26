@@ -1,0 +1,79 @@
+// Global Typography rules
+
+
+
+html {
+    font-size: $font-size-site;
+}
+
+body {
+    font-weight: normal;
+    color: $font-color-default;
+}
+
+// Title tags
+h1,
+h2
+{
+    font-weight: 600;
+    color: $font-color-default ;
+}
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 500;
+    color: $font-color-default  !important;
+}
+
+// Section titles variations
+.section-title {
+
+    &-lg,
+    &-md {
+        text-align: left;
+        line-height: 1;
+        color: $font-color-title;
+
+        &.light {
+            color: $font-color-light;
+        }
+
+        @include tablet-and-down {
+            text-align: center;
+        }
+    }
+
+    &-lg {
+        font-weight: 600;
+        font-size: $font-size-title;
+
+        @include tablet-and-down {
+            font-size: $font-size-title-mobile;
+        }
+    }
+
+    &-md {
+        font-weight: 400;
+        font-size: $font-size-title-md;
+
+        @include tablet-and-down {
+            font-weight: 300;
+            font-size: $font-size-title-md-mobile;
+        }
+    }
+}
+
+.section-subtitle {
+    font-size: $font-size-subtitle;
+    color: $font-color-secondary;
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
