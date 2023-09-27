@@ -1,12 +1,12 @@
 <template>
   <div class="default-layout">
+    <LayoutHeader />
     <slot />
-    <LayoutFooter />
   </div>
 </template>
 <style lang="scss">
 .default-layout {
-  min-height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 }
 </style>

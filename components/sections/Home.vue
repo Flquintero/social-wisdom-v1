@@ -2,7 +2,7 @@
   <div class="home-content">
     <div class="home-content__header">
       <div class="home-content__header__logo">
-        <img src="/img/SWLOGO.jpeg" alt="Discover Social Wisdom" />
+        <BaseLogo />
       </div>
       <div class="home-content__header__title">
         <!-- <h1>Social Wisdom</h1> -->
@@ -21,7 +21,8 @@
     <div class="home-content__actions">
       <BaseButton
         @click.prevent="submitSearch"
-        button-text="Search"
+        :disabled="!searchValue"
+        :button-text="`🔎 Search`"
         variant="primary"
       />
     </div>
@@ -29,10 +30,7 @@
 </template>
 <script lang="ts">
 import keyword_extractor from "keyword-extractor";
-import algoliasearch from "algoliasearch";
 import { defineComponent } from "vue";
-const client = algoliasearch("LRR1BTFAV0", "0f2d062a2251b655532eb229db247a9b");
-const index = client.initIndex("Social Media Domain Experts");
 
 export default defineComponent({
   name: "Home",
@@ -54,24 +52,18 @@ export default defineComponent({
         remove_duplicates: false,
       });
       this.searchKeywords = JSON.parse(JSON.stringify(searchKeywordsRaw));
-      console.log(
-        "this.searchKeyword",
-        JSON.parse(JSON.stringify(this.searchKeywords))
-      );
-      index
-        .search(this.searchKeywords.join(), {
-          removeWordsIfNoResults: "allOptional",
-        })
-        .then(({ hits }) => {
-          console.log(hits);
-        });
+      this.$router.push({
+        name: "results",
+        query: { q: this.searchKeywords.join() },
+      });
+      localStorage.setItem("CurrentQuestion", this.searchValue);
     },
   },
 });
 </script>
 <style lang="scss" scoped>
 .home-content {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   padding: 10px 20px;
   &__header {
@@ -98,6 +90,7 @@ export default defineComponent({
   &__actions {
     @include center-with-margin($max-width: 250px, $top: 25px);
     height: 55px;
+    padding: 5px;
   }
 }
 </style>
