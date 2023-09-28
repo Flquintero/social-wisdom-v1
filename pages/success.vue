@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SectionConfirmation />
+    <SectionSuccess />
   </div>
 </template>
 <script lang="ts">

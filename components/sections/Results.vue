@@ -98,7 +98,7 @@ export default defineComponent({
     },
     chooseExpert(item: any) {
       this.$router.push({
-        name: "confirmation",
+        name: "details",
         query: { q: this.$route.query.q, account: item.name },
       });
     },

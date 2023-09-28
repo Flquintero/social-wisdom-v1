@@ -1,20 +1,20 @@
 <template>
-  <div class="confirmation-content">
-    <div class="confirmation-content__header">
+  <div class="details-content">
+    <div class="details-content__header">
       <!-- <h1>We will work on your request! ❤️</h1> -->
       <h3>{{ currentExpert }} is not on the platform yet!</h3>
       <h3>
         But with your help we can get them on, and that way help others! ❤️
       </h3>
     </div>
-    <div class="confirmation-content__bid">
-      <h1 class="confirmation-content__bid__title">
+    <div class="details-content__bid">
+      <h1 class="details-content__bid__title">
         We believe that if you offer to pay for the answer, we can get them to
         send you a video with it.
       </h1>
-      <div class="confirmation-content__bid__form">
+      <div class="details-content__bid__form">
         <h3>If so, how much would you be willing to pay?</h3>
-        <div class="confirmation-content__bid__form__input">
+        <div class="details-content__bid__form__input">
           💲&nbsp;&nbsp;<BaseInput
             @input="setForm($event, 'amount')"
             v-bind="{ placeholder: 'Enter Amount...', type: 'number' }"
@@ -22,11 +22,11 @@
         </div>
       </div>
     </div>
-    <div class="confirmation-content__details">
+    <div class="details-content__details">
       <h3>
         Also, we would need your info, to send you the answer (nothing else):
       </h3>
-      <div class="confirmation-content__details__form">
+      <div class="details-content__details__form">
         <BaseInput
           @input="setForm($event, 'name')"
           v-bind="{ placeholder: 'Name', type: 'text' }"
@@ -37,11 +37,12 @@
         />
       </div>
     </div>
-    <div class="confirmation-content__actions">
+    <div class="details-content__actions">
       <BaseButton
         :disabled="isFormMissingData"
         button-text="Get Me The Answer! 💪"
         variant="primary"
+        @click="submitRequest"
       />
     </div>
   </div>
@@ -50,7 +51,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "Confirmation",
+  name: "Details",
   data() {
     return {
       searchResults: null as any,
@@ -81,11 +82,18 @@ export default defineComponent({
     setForm(domEvent: any, field: string) {
       (this.formData as any)[field] = domEvent.target.value;
     },
+    submitRequest() {
+      console.log(this.formData);
+      this.$router.push({
+        name: "success",
+        query: { account: this.$route.query.account },
+      });
+    },
   },
 });
 </script>
 <style lang="scss" scoped>
-.confirmation-content {
+.details-content {
   padding: 20px;
   &__header {
     text-align: center;
