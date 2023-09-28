@@ -1,11 +1,12 @@
 <template>
-  <div class="default-layout">
+  <div class="results-layout">
     <LayoutHeader link-logo to="/" />
     <slot />
   </div>
 </template>
-<style lang="scss">
-.default-layout {
+<style lang="scss" scoped>
+.results-layout {
+  padding-top: 90px;
   height: 100%;
   width: 100%;
 }

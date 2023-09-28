@@ -1,8 +1,6 @@
 <template>
   <div>
-    <NuxtLayout>
-      <SectionHome />
-    </NuxtLayout>
+    <SectionHome />
   </div>
 </template>
 <script>

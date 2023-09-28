@@ -54,7 +54,7 @@
           </div>
           <div class="results-content__body__item__button">
             <BaseButton
-              @click.prevent="chooseExpert"
+              @click.prevent="chooseExpert(item)"
               :button-text="`👋 Ask Question`"
               variant="primary"
             />
@@ -96,6 +96,12 @@ export default defineComponent({
           this.searchResults = hits;
         });
     },
+    chooseExpert(item: any) {
+      this.$router.push({
+        name: "confirmation",
+        query: { q: this.$route.query.q, account: item.name },
+      });
+    },
   },
 });
 </script>
@@ -104,7 +110,6 @@ export default defineComponent({
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-top: 100px;
   flex-direction: column;
   &__header {
     text-align: center;
