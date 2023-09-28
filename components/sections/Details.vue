@@ -82,12 +82,31 @@ export default defineComponent({
     setForm(domEvent: any, field: string) {
       (this.formData as any)[field] = domEvent.target.value;
     },
-    submitRequest() {
-      console.log(this.formData);
-      this.$router.push({
-        name: "success",
-        query: { account: this.$route.query.account },
-      });
+    async submitRequest() {
+      try {
+        let emailPayload = {
+          personalizations: [
+            {
+              to: [{ email: "hello@socialwisdom.co" }],
+            },
+          ],
+          from: {
+            email: "hello@socialwisdom.co",
+            name: "Social Wisdom Support",
+          },
+          subject: "SW Question Request!",
+          template_id: "d-43fb730f04f8438a806c72efc9fc7307",
+          dynamic_template_data: this.formData,
+        };
+        await useFetch("/api/email", { method: "post", body: emailPayload });
+        this.$router.push({
+          name: "success",
+          query: { account: this.$route.query.account },
+        });
+      } catch (error) {
+        console.log("Registration Error", error);
+      } finally {
+      }
     },
   },
 });

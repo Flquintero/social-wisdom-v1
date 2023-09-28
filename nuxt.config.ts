@@ -25,4 +25,10 @@ export default defineNuxtConfig({
     // ~/components/base/Btn.vue => <BaseBtn />
     "~/components",
   ],
+  runtimeConfig: {
+    SENDGRID_API_KEY: process.env.NUXT_ENV_SENDGRID_API_KEY,
+    ALGOLIA_ACCOUNT_ID: process.env.NUXT_ENV_ALGOLIA_ACCOUNT_ID,
+    ALGOLIA_API_KEY: process.env.NUXT_ENV_ALGOLIA_API_KEY,
+    ALGOLIA_INDEX: process.env.NUXT_ENV_ALGOLIA_INDEX,
+  },
 });
