@@ -16,7 +16,7 @@
         <h3>If so, how much would you be willing to pay?</h3>
         <div class="confirmation-content__bid__form__input">
           💲&nbsp;&nbsp;<BaseInput
-            @input="setAmount($event)"
+            @input="setForm($event, 'amount')"
             v-bind="{ placeholder: 'Enter Amount...', type: 'number' }"
           />
         </div>
@@ -27,26 +27,39 @@
         Also, we would need your info, to send you the answer (nothing else):
       </h3>
       <div class="confirmation-content__details__form">
-        <BaseInput v-bind="{ placeholder: 'Name', type: 'text' }" />
-        <BaseInput v-bind="{ placeholder: 'Email', type: 'text' }" />
+        <BaseInput
+          @input="setForm($event, 'name')"
+          v-bind="{ placeholder: 'Name', type: 'text' }"
+        />
+        <BaseInput
+          @input="setForm($event, 'email')"
+          v-bind="{ placeholder: 'Email', type: 'email' }"
+        />
       </div>
     </div>
     <div class="confirmation-content__actions">
-      <BaseButton button-text="Get Me The Answer! 💪" variant="primary" />
+      <BaseButton
+        :disabled="isFormMissingData"
+        button-text="Get Me The Answer! 💪"
+        variant="primary"
+      />
     </div>
   </div>
 </template>
 <script lang="ts">
-import algoliasearch from "algoliasearch";
 import { defineComponent } from "vue";
-const client = algoliasearch("LRR1BTFAV0", "0f2d062a2251b655532eb229db247a9b");
-const index = client.initIndex("Social Media Domain Experts");
 
 export default defineComponent({
   name: "Confirmation",
   data() {
     return {
       searchResults: null as any,
+      formData: {
+        amount: null as number | null,
+        name: null as string | null,
+        email: null as string | null,
+        question: null as string | null,
+      },
     };
   },
   computed: {
@@ -56,21 +69,17 @@ export default defineComponent({
     currentExpert(): string {
       return this.$route.query.account as string;
     },
+    isFormMissingData(): boolean {
+      return !!Object.values(this.formData).filter((item) => item === null)
+        .length;
+    },
   },
   mounted() {
-    this.performSearch();
+    this.formData.question = localStorage.getItem("CurrentQuestion");
   },
   methods: {
-    performSearch() {
-      console.log(this.$route.query);
-      //   const searchKeywords = this.$route.query.q as string;
-      //   index
-      //     .search(searchKeywords, {
-      //       removeWordsIfNoResults: "allOptional",
-      //     })
-      //     .then(({ hits }) => {
-      //       this.searchResults = hits;
-      //     });
+    setForm(domEvent: any, field: string) {
+      (this.formData as any)[field] = domEvent.target.value;
     },
   },
 });
@@ -118,7 +127,7 @@ export default defineComponent({
   &__actions {
     width: 100%;
     max-width: 250px;
-    height: 35px;
+    height: 45px;
     margin: 10px auto;
   }
 }
