@@ -53,7 +53,7 @@ export default defineComponent({
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 4px;
+  border-radius: 8px;
   letter-spacing: 1.25px;
   font-weight: 500;
   background: transparent;

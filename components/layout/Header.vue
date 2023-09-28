@@ -7,7 +7,7 @@
     <div v-if="actions" class="header-layout__menu">
       <BaseButton
         @click="$router.push('/')"
-        :button-text="`New Question`"
+        :button-text="`😊 New Question`"
         variant="primary"
       />
     </div>

@@ -66,13 +66,11 @@ export default defineComponent({
   &__field {
     cursor: pointer;
     border: 1px solid $border;
-    border-radius: 4px;
+    border-radius: 8px;
     color: $dark-blue;
     caret-color: $dark-blue;
     width: 100%;
-    -webkit-box-shadow: 0px 1px 2px 0px rgba(46, 74, 117, 0.25);
-    -moz-box-shadow: 0px 1px 2px 0px rgba(46, 74, 117, 0.25);
-    box-shadow: 0px 1px 2px 0px rgba(46, 74, 117, 0.25);
+    @include box-shadow;
     outline: none;
     padding: 15px;
     &:focus,
