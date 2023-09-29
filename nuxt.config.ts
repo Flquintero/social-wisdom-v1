@@ -2,6 +2,20 @@
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  app: {
+    head: {
+      title: "Social Wisdom",
+      meta: [
+        {
+          name: "description",
+          content:
+            "Social Wisdom helps answer questions with the power of social media",
+        },
+      ],
+      charset: "utf-8",
+      viewport: "width=device-width, initial-scale=1",
+    },
+  },
   vite: {
     css: {
       preprocessorOptions: {
