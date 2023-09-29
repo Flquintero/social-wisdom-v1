@@ -5,11 +5,27 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: "Social Wisdom",
+      htmlAttrs: {
+        lang: "en",
+      },
       meta: [
+        {
+          name: "image",
+          content: "/img/ogImage",
+        },
         {
           name: "description",
           content:
             "Social Wisdom helps answer questions with the power of social media",
+        },
+        {
+          name: "ogDescription",
+          content:
+            "Social Wisdom helps answer questions with the power of social media",
+        },
+        {
+          name: "ogImage",
+          content: "/img/ogImage",
         },
       ],
       charset: "utf-8",
