@@ -1,67 +1,91 @@
 <template>
   <div class="results-content">
-    <div class="results-content__header">
-      <div class="results-content__header__title">
-        <h2>
-          These are the best social media accounts to help you find an answer:
-        </h2>
+    <template v-if="isLoading">
+      <div class="results-content__loading">
+        <img src="~/public/img/loaderIcon.svg?inline" />
+        <h2>Searching...</h2>
       </div>
-      <!-- <div class="results-content__header__question">
+    </template>
+    <template v-else>
+      <div v-if="hasSearchResults" class="results-content__header">
+        <div class="results-content__header__title">
+          <h2>
+            These are the best social media accounts to help you find an answer:
+          </h2>
+        </div>
+        <!-- <div class="results-content__header__question">
         <ClientOnly>
           <p>{{ currentQuestion }}</p>
         </ClientOnly>
       </div> -->
-    </div>
-    <div class="results-content__body">
-      <div
-        class="results-content__body__item"
-        v-for="item in searchResults"
-        :key="item.id"
-      >
-        <div class="results-content__body__item__image">
-          <img src="/img/creator.jpg" />
-        </div>
-        <div class="results-content__body__item__content">
-          <div class="results-content__body__item__title">
-            <p>{{ item.name }}</p>
-          </div>
-          <div class="results-content__body__item__social">
-            <div class="results-content__body__item__social__icon">
-              <img src="/img/IGlogo.png" />
-            </div>
-            <div class="results-content__body__item__social__info">
-              <p class="results-content__body__item__social__info__handle">
-                @saschafitness
-              </p>
-              <p class="results-content__body__item__social__info__followers">
-                5.5M followers
-              </p>
-            </div>
-            <div class="results-content__body__item__social__link">
-              <a
-                href="https://www.instagram.com/saschafitness/?hl=en"
-                target="none"
-                >🔗</a
-              >
-            </div>
-          </div>
-          <div class="results-content__body__item__description">
-            <p>
-              Fitness-Nutrition Coach CEO-Sascha Fitness Corp Book author Mamá
-              Youtube: Sascha Fitness
-            </p>
-            <div class="results-content__body__item__badges"></div>
-          </div>
-          <div class="results-content__body__item__button">
-            <BaseButton
-              @click.prevent="chooseExpert(item)"
-              :button-text="`👋 Ask Question`"
-              variant="primary"
-            />
-          </div>
-        </div>
       </div>
-    </div>
+      <div class="results-content__body">
+        <template v-if="hasSearchResults">
+          <div
+            class="results-content__body__item"
+            v-for="item in searchResults"
+            :key="item.id"
+          >
+            <div class="results-content__body__item__image">
+              <img src="/img/creator.jpg" />
+            </div>
+            <div class="results-content__body__item__content">
+              <div class="results-content__body__item__title">
+                <p>{{ item.name }}</p>
+              </div>
+              <div class="results-content__body__item__social">
+                <div class="results-content__body__item__social__icon">
+                  <img src="/img/IGlogo.png" />
+                </div>
+                <div class="results-content__body__item__social__info">
+                  <p class="results-content__body__item__social__info__handle">
+                    @saschafitness
+                  </p>
+                  <p
+                    class="results-content__body__item__social__info__followers"
+                  >
+                    5.5M followers
+                  </p>
+                </div>
+                <div class="results-content__body__item__social__link">
+                  <a
+                    href="https://www.instagram.com/saschafitness/?hl=en"
+                    target="none"
+                    >🔗</a
+                  >
+                </div>
+              </div>
+              <div class="results-content__body__item__description">
+                <p>
+                  Fitness-Nutrition Coach CEO-Sascha Fitness Corp Book author
+                  Mamá Youtube: Sascha Fitness
+                </p>
+                <div class="results-content__body__item__badges"></div>
+              </div>
+              <div class="results-content__body__item__button">
+                <BaseButton
+                  @click.prevent="chooseExpert(item)"
+                  :button-text="`👋 Ask Question`"
+                  variant="primary"
+                />
+              </div>
+            </div>
+          </div>
+        </template>
+        <template v-else>
+          <div class="results-content__body--empty">
+            <h1>😥</h1>
+            <h1>
+              Seems like we haven't socially sourced the suggestions for this.
+            </h1>
+            <h3>
+              We have noted your search and added it to
+              <NuxtLink>The SW Project</NuxtLink>
+            </h3>
+          </div>
+        </template>
+      </div>
+    </template>
   </div>
 </template>
 <script lang="ts">
@@ -75,26 +99,34 @@ export default defineComponent({
   data() {
     return {
       searchResults: null as any,
+      isLoading: false,
     };
   },
   computed: {
     currentQuestion() {
       return localStorage.getItem("CurrentQuestion");
     },
+    hasSearchResults() {
+      return !!this.searchResults?.length;
+    },
   },
   mounted() {
     this.performSearch();
   },
   methods: {
-    performSearch() {
-      const searchKeywords = this.$route.query.q as string;
-      index
-        .search(searchKeywords, {
+    async performSearch() {
+      try {
+        this.isLoading = true;
+        const searchKeywords = this.$route.query.q as string;
+        const { hits } = await index.search(searchKeywords, {
           removeWordsIfNoResults: "allOptional",
-        })
-        .then(({ hits }) => {
-          this.searchResults = hits;
         });
+        this.searchResults = hits;
+      } catch (error: any) {
+        console.log("error");
+      } finally {
+        this.isLoading = false;
+      }
     },
     chooseExpert(item: any) {
       this.$router.push({
@@ -111,6 +143,14 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   flex-direction: column;
+  &__loading {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
   &__header {
     text-align: center;
     // &__title {
@@ -125,6 +165,16 @@ export default defineComponent({
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    &--empty {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      h3 {
+        margin-top: 10px;
+      }
+    }
     &__item {
       margin: 20px;
       border: 1px solid $border;
