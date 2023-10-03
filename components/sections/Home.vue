@@ -9,23 +9,26 @@
         <h3>Get your questions answered with the power of social media</h3>
       </div>
     </div>
-    <div class="home-content__input">
-      <BaseInput
-        @input="setSearchValue($event)"
-        v-bind="{
-          placeholder: 'Enter a question...',
-          value: searchValue,
-        }"
-      />
-    </div>
-    <div class="home-content__actions">
-      <BaseButton
-        @click.prevent="submitSearch"
-        :disabled="!searchValue"
-        :button-text="`🔎 Search`"
-        variant="primary"
-      />
-    </div>
+    <form @submit.prevent="submitSearch">
+      <div class="home-content__input">
+        <BaseInput
+          @input="setSearchValue($event)"
+          v-bind="{
+            placeholder: 'Enter a question...',
+            value: searchValue,
+          }"
+        />
+      </div>
+      <div class="home-content__actions">
+        <BaseButton
+          type="submit"
+          @click.prevent="submitSearch"
+          :disabled="!searchValue"
+          :button-text="`🔎 Search`"
+          variant="primary"
+        />
+      </div>
+    </form>
   </div>
 </template>
 <script lang="ts">

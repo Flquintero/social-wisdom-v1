@@ -7,44 +7,51 @@
         But with your help we can get them on, and that way help others! ❤️
       </h3>
     </div>
-    <div class="details-content__bid">
-      <h1 class="details-content__bid__title">
-        We believe that if you offer to pay for the answer, we can get them to
-        send you a video with it.
-      </h1>
-      <div class="details-content__bid__form">
-        <h3>If so, how much would you be willing to pay?</h3>
-        <div class="details-content__bid__form__input">
-          💲&nbsp;&nbsp;<BaseInput
-            @input="setForm($event, 'amount')"
-            v-bind="{ placeholder: 'Enter Amount...', type: 'number' }"
+    <form @submit.prevent="submitRequest">
+      <div class="details-content__bid">
+        <h1 class="details-content__bid__title">
+          We believe that if you offer to pay for the answer, we can get them to
+          send you a video with it.
+        </h1>
+        <div class="details-content__bid__form">
+          <h3>If so, how much would you be willing to pay?</h3>
+          <div class="details-content__bid__form__input">
+            💲&nbsp;&nbsp;<BaseInput
+              @input="setForm($event, 'amount')"
+              v-bind="{ placeholder: 'Enter Amount...', type: 'number' }"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="details-content__details">
+        <h3>
+          Also, we would need your info, to send you the answer (nothing else):
+        </h3>
+        <div class="details-content__details__form">
+          <BaseInput
+            @input="setForm($event, 'name')"
+            v-bind="{ placeholder: 'Name', type: 'text' }"
+          />
+          <BaseInput
+            @input="setForm($event, 'email')"
+            v-bind="{ placeholder: 'Email', type: 'text' }"
+          />
+          <BaseInput
+            @input="setForm($event, 'instagram')"
+            v-bind="{ placeholder: 'Instagram Handle', type: 'text' }"
           />
         </div>
       </div>
-    </div>
-    <div class="details-content__details">
-      <h3>
-        Also, we would need your info, to send you the answer (nothing else):
-      </h3>
-      <div class="details-content__details__form">
-        <BaseInput
-          @input="setForm($event, 'name')"
-          v-bind="{ placeholder: 'Name', type: 'text' }"
-        />
-        <BaseInput
-          @input="setForm($event, 'email')"
-          v-bind="{ placeholder: 'Email', type: 'email' }"
+      <div class="details-content__actions">
+        <BaseButton
+          type="submit"
+          :disabled="isFormMissingData"
+          button-text="Get Me The Answer! 💪"
+          variant="primary"
+          @click="submitRequest"
         />
       </div>
-    </div>
-    <div class="details-content__actions">
-      <BaseButton
-        :disabled="isFormMissingData"
-        button-text="Get Me The Answer! 💪"
-        variant="primary"
-        @click="submitRequest"
-      />
-    </div>
+    </form>
   </div>
 </template>
 <script lang="ts">
@@ -59,6 +66,7 @@ export default defineComponent({
         amount: null as number | null,
         name: null as string | null,
         email: null as string | null,
+        instagram: null as string | null,
         question: null as string | null,
       },
     };

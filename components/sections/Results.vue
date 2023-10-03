@@ -91,8 +91,12 @@
 <script lang="ts">
 import algoliasearch from "algoliasearch";
 import { defineComponent } from "vue";
-const client = algoliasearch("LRR1BTFAV0", "0f2d062a2251b655532eb229db247a9b");
-const index = client.initIndex("Social Media Domain Experts");
+const config = useRuntimeConfig();
+const client = algoliasearch(
+  config.public.ALGOLIA_ACCOUNT_ID,
+  config.public.ALGOLIA_API_KEY
+);
+const index = client.initIndex(config.public.ALGOLIA_INDEX);
 
 export default defineComponent({
   name: "Results",
@@ -118,6 +122,7 @@ export default defineComponent({
       try {
         this.isLoading = true;
         const searchKeywords = this.$route.query.q as string;
+        if (!searchKeywords) return;
         const { hits } = await index.search(searchKeywords, {
           removeWordsIfNoResults: "allOptional",
         });
