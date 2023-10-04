@@ -3,7 +3,6 @@
     <template v-if="isLoading">
       <div class="results-content__loading">
         <img src="~/public/img/loaderIcon.svg?inline" />
-        <h2>Searching...</h2>
       </div>
     </template>
     <template v-else>
@@ -92,19 +91,15 @@
 import mixpanel from "mixpanel-browser";
 import algoliasearch from "algoliasearch";
 import { defineComponent } from "vue";
-const config = useRuntimeConfig();
-const client = algoliasearch(
-  config.public.ALGOLIA_ACCOUNT_ID,
-  config.public.ALGOLIA_API_KEY
-);
-const index = client.initIndex(config.public.ALGOLIA_INDEX);
+const client = algoliasearch("LRR1BTFAV0", "0f2d062a2251b655532eb229db247a9b");
+const index = client.initIndex("Social Media Domain Experts");
 
 export default defineComponent({
   name: "Results",
   data() {
     return {
       searchResults: null as any,
-      isLoading: false,
+      isLoading: true,
     };
   },
   computed: {
