@@ -29,6 +29,7 @@ $pink: #ffbdd9;
 $burgundy: #a3166a;
 $dark-blue: #2e3458;
 $facebook-blue: #0474e7;
+$sw-blue: #2596be;
 
 // Negative Color Palette
 $negative-darker: #7D0D0D;
@@ -39,7 +40,7 @@ $negative-med: #FAD6CF;
 $negative-light: #FDF2F0;
 
 // Color variables
-$primary: $medium-blue !default;
+$primary: $sw-blue !default;
 $primary-light: $light-blue !default;
 $secondary: $burgundy  !default;
 $tertiary: $pink !default;
@@ -65,7 +66,7 @@ $border-specs: $border-width $border-type $pale;
 $border-specs-primary: $border-width $border-type $primary;
 
 // Buttons
-$button-primary-background: $burgundy  !default;
+$button-primary-background: $primary  !default;
 $button-primary-color: $white  !default;
 $button-primary-disabled: $pale  !default;
 
