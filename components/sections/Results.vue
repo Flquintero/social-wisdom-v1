@@ -89,6 +89,7 @@
   </div>
 </template>
 <script lang="ts">
+import mixpanel from "mixpanel-browser";
 import algoliasearch from "algoliasearch";
 import { defineComponent } from "vue";
 const config = useRuntimeConfig();
@@ -127,13 +128,20 @@ export default defineComponent({
           removeWordsIfNoResults: "allOptional",
         });
         this.searchResults = hits;
+        mixpanel.track("Performed Search", {
+          keywords: searchKeywords,
+          results: hits,
+        });
       } catch (error: any) {
-        console.log("error");
+        console.log("error", error);
       } finally {
         this.isLoading = false;
       }
     },
     chooseExpert(item: any) {
+      mixpanel.track("Expert Chosen", {
+        expert: item,
+      });
       this.$router.push({
         name: "details",
         query: { q: this.$route.query.q, account: item.name },

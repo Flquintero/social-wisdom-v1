@@ -45,7 +45,8 @@
       <div class="details-content__actions">
         <BaseButton
           type="submit"
-          :disabled="isFormMissingData"
+          :disabled="isFormMissingData || isSubmiting"
+          :loading="isSubmiting"
           button-text="Get Me The Answer! 💪"
           variant="primary"
           @click="submitRequest"
@@ -55,6 +56,7 @@
   </div>
 </template>
 <script lang="ts">
+import mixpanel from "mixpanel-browser";
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -62,12 +64,14 @@ export default defineComponent({
   data() {
     return {
       searchResults: null as any,
+      isSubmiting: false,
       formData: {
         amount: null as number | null,
         name: null as string | null,
         email: null as string | null,
         instagram: null as string | null,
         question: null as string | null,
+        expert: null as string | null,
       },
     };
   },
@@ -85,6 +89,7 @@ export default defineComponent({
   },
   mounted() {
     this.formData.question = localStorage.getItem("CurrentQuestion");
+    this.formData.expert = this.$route.query.account as string;
   },
   methods: {
     setForm(domEvent: any, field: string) {
@@ -92,6 +97,10 @@ export default defineComponent({
     },
     async submitRequest() {
       try {
+        this.isSubmiting = true;
+        mixpanel.track("Submit Question Request", {
+          request_data: this.formData,
+        });
         let emailPayload = {
           personalizations: [
             {
@@ -114,6 +123,7 @@ export default defineComponent({
       } catch (error) {
         console.log("Registration Error", error);
       } finally {
+        this.isSubmiting = false;
       }
     },
   },

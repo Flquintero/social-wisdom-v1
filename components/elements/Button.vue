@@ -8,7 +8,10 @@
     }"
     :disabled="disabled"
   >
-    <slot>
+    <div class="c-btn__loading-icon" v-if="loading">
+      <img src="~/assets/img/ButtonLoaderIcon.svg?inline" />
+    </div>
+    <slot v-else>
       <!-- <c-icon v-if="iconConfig" :style="iconPosition" v-bind="iconConfig" /> -->
       <span>{{ buttonText }}</span>
     </slot>
@@ -62,6 +65,15 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  &__loading-icon {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      height: 100%;
+    }
+  }
 
   &-primary {
     color: $button-primary-color;
