@@ -34,6 +34,19 @@ export default defineNuxtConfig({
       ],
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
+      script: [
+        {
+          hid: "gtm-script1",
+          src: `https://www.googletagmanager.com/gtag/js?id=${process.env.NUXT_ENV_GTM_ID}`,
+          async: true,
+        },
+        {
+          hid: "gtm-script2",
+          innerHTML: `window.dataLayer = window.dataLayer || []; 
+          function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+          gtag('config', ${process.env.NUXT_ENV_GTM_ID});`,
+        },
+      ],
     },
   },
   vite: {
@@ -67,6 +80,7 @@ export default defineNuxtConfig({
       ALGOLIA_API_KEY: process.env.NUXT_ENV_ALGOLIA_API_KEY,
       ALGOLIA_INDEX: process.env.NUXT_ENV_ALGOLIA_INDEX,
       LOGROCKET_APP_ID: process.env.NUXT_ENV_LOGROCKET_APP_ID,
+      MIXPANEL_PROJECT_TOKEN: process.env.NUXT_ENV_MIXPANEL_PROJECT_TOKEN,
     },
   },
 });
