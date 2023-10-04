@@ -4,25 +4,27 @@
       <img src="/img/IGlogo.png" />
     </div> -->
     <div class="footer-layout__wrapper">
-      <div class="footer-layout__content">
-        <div class="footer-layout__content__project">
-          <h3>The SW Project</h3>
+      <div class="footer-layout__content__first-row">
+        <div class="footer-layout__project">
+          <h3>SW Project</h3>
         </div>
         <!-- <div class="footer-layout__separator">
           <h3>&nbsp;<span></span>&nbsp;</h3>
         </div> -->
-        <div class="footer-layout__content__about">
+        <div class="footer-layout__about">
           <h3>About us</h3>
         </div>
       </div>
     </div>
     <div class="footer-layout__wrapper">
-      <div class="footer-layout__content">
+      <div class="footer-layout__content__second-row">
         <div class="footer-layout__copyright">
           <h3>©️ Social Wisdom 2023</h3>
         </div>
         <!-- <div class="footer-layout__terms"><h3>&nbsp;|&nbsp;</h3></div> -->
-        <div class="footer-layout__terms"><h3>Terms and Conditions</h3></div>
+        <div class="footer-layout__terms">
+          <h3>Terms and Conditions</h3>
+        </div>
         <!-- <div class="footer-layout__terms"><h3>&nbsp;|&nbsp;</h3></div> -->
         <div class="footer-layout__privacy">
           <h3>Privacy Policy</h3>
@@ -57,24 +59,35 @@
     @include center-with-margin($max-width: 500px);
   }
   &__content {
-    display: flex;
-    justify-content: center;
-    > div {
+    &__first-row {
       display: flex;
-      margin: 0 10px;
-      font-size: 12px;
-      width: 33%;
+      justify-content: center;
+      text-decoration: underline;
     }
-    &__project {
-      width: 50%;
-      justify-content: flex-end;
-      font-size: 14px !important;
+    &__second-row {
+      display: flex;
+      justify-content: center;
+      @include mobile {
+        font-size: 10px;
+      }
+      > div {
+        margin: 0 5px;
+      }
     }
-    &__about {
-      width: 50%;
-      justify-content: flex-start;
-      font-size: 14px !important;
-    }
+  }
+  &__project {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px !important;
+    margin: 0 10px;
+  }
+  &__about {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 14px !important;
+    margin: 0 10px;
   }
 }
 </style>
