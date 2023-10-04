@@ -9,7 +9,7 @@
     :disabled="disabled"
   >
     <div class="c-btn__loading-icon" v-if="loading">
-      <img src="~/assets/img/ButtonLoaderIcon.svg?inline" />
+      <img src="~/public/img/ButtonLoaderIcon.svg?inline" />
     </div>
     <slot v-else>
       <!-- <c-icon v-if="iconConfig" :style="iconPosition" v-bind="iconConfig" /> -->
