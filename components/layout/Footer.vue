@@ -6,13 +6,13 @@
     <div class="footer-layout__wrapper">
       <div class="footer-layout__content__first-row">
         <div class="footer-layout__project">
-          <NuxtLink>SW Project</NuxtLink>
+          <NuxtLink to="/project">SW Project</NuxtLink>
         </div>
         <!-- <div class="footer-layout__separator">
           <h3>&nbsp;<span></span>&nbsp;</h3>
         </div> -->
         <div class="footer-layout__about">
-          <NuxtLink>About us</NuxtLink>
+          <NuxtLink to="/about">About us</NuxtLink>
         </div>
       </div>
     </div>
@@ -23,11 +23,11 @@
         </div>
         <!-- <div class="footer-layout__terms"><h3>&nbsp;|&nbsp;</h3></div> -->
         <div class="footer-layout__terms">
-          <NuxtLink>Terms and Conditions</NuxtLink>
+          <NuxtLink to="/terms-and-conditions">Terms and Conditions</NuxtLink>
         </div>
         <!-- <div class="footer-layout__terms"><h3>&nbsp;|&nbsp;</h3></div> -->
         <div class="footer-layout__privacy">
-          <NuxtLink>Privacy Policy</NuxtLink>
+          <NuxtLink to="/privacy-policy">Privacy Policy</NuxtLink>
         </div>
       </div>
     </div>
