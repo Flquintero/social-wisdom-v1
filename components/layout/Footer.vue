@@ -6,28 +6,28 @@
     <div class="footer-layout__wrapper">
       <div class="footer-layout__content__first-row">
         <div class="footer-layout__project">
-          <h3>SW Project</h3>
+          <NuxtLink>SW Project</NuxtLink>
         </div>
         <!-- <div class="footer-layout__separator">
           <h3>&nbsp;<span></span>&nbsp;</h3>
         </div> -->
         <div class="footer-layout__about">
-          <h3>About us</h3>
+          <NuxtLink>About us</NuxtLink>
         </div>
       </div>
     </div>
     <div class="footer-layout__wrapper">
       <div class="footer-layout__content__second-row">
         <div class="footer-layout__copyright">
-          <h3>©️ Social Wisdom 2023</h3>
+          <h4>©️ Social Wisdom {{ new Date().getFullYear() }}</h4>
         </div>
         <!-- <div class="footer-layout__terms"><h3>&nbsp;|&nbsp;</h3></div> -->
         <div class="footer-layout__terms">
-          <h3>Terms and Conditions</h3>
+          <NuxtLink>Terms and Conditions</NuxtLink>
         </div>
         <!-- <div class="footer-layout__terms"><h3>&nbsp;|&nbsp;</h3></div> -->
         <div class="footer-layout__privacy">
-          <h3>Privacy Policy</h3>
+          <NuxtLink>Privacy Policy</NuxtLink>
         </div>
       </div>
     </div>
@@ -72,6 +72,11 @@
       }
       > div {
         margin: 0 5px;
+        a {
+          font-weight: normal;
+          text-decoration: none;
+          cursor: pointer;
+        }
       }
     }
   }
@@ -81,6 +86,7 @@
     justify-content: flex-end;
     font-size: 14px !important;
     margin: 0 10px;
+    cursor: pointer;
   }
   &__about {
     width: 50%;
@@ -88,6 +94,7 @@
     justify-content: flex-start;
     font-size: 14px !important;
     margin: 0 10px;
+    cursor: pointer;
   }
 }
 </style>

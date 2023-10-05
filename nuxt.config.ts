@@ -4,14 +4,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     head: {
-      title: "Social Wisdom",
+      title: "Social Wisdom | Get your answers from social",
       htmlAttrs: {
         lang: "en",
       },
       meta: [
         {
           name: "og:title",
-          content: "Social Wisdom",
+          content: "Social Wisdom | Get your answers from social",
         },
         // {
         //   name: "image",

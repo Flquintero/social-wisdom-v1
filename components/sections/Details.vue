@@ -21,6 +21,7 @@
               v-bind="{ placeholder: 'Enter Amount...', type: 'number' }"
             />
           </div>
+          <h5>It could be anything from $1 up!</h5>
         </div>
       </div>
       <div class="details-content__details">
@@ -36,10 +37,10 @@
             @input="setForm($event, 'email')"
             v-bind="{ placeholder: 'Email', type: 'text' }"
           />
-          <BaseInput
+          <!-- <BaseInput
             @input="setForm($event, 'instagram')"
             v-bind="{ placeholder: 'Instagram Handle', type: 'text' }"
-          />
+          /> -->
         </div>
       </div>
       <div class="details-content__actions">
@@ -69,7 +70,7 @@ export default defineComponent({
         amount: null as number | null,
         name: null as string | null,
         email: null as string | null,
-        instagram: null as string | null,
+        // instagram: null as string | null,
         question: null as string | null,
         expert: null as string | null,
       },

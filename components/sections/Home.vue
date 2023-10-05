@@ -28,6 +28,15 @@
           variant="primary"
         />
       </div>
+      <div class="home-content__disclosure">
+        <h4 class="home-content__disclosure__title">
+          We are currently in beta and only support questions related to
+          <b>new parents / mothers</b> like:
+        </h4>
+        <p @click="submitQuickSearch" class="home-content__disclosure__example">
+          {{ exampleQuestion }}
+        </p>
+      </div>
     </form>
   </div>
 </template>
@@ -41,11 +50,16 @@ export default defineComponent({
     return {
       searchValue: null as any,
       searchKeywords: null as any,
+      exampleQuestion: "When will my baby sleep the whole night?",
     };
   },
   methods: {
     setSearchValue(searchValue: any) {
       this.searchValue = searchValue.target.value;
+    },
+    submitQuickSearch() {
+      this.searchValue = this.exampleQuestion;
+      this.submitSearch();
     },
     submitSearch() {
       const searchKeywordsRaw = keyword_extractor.extract(this.searchValue, {
@@ -94,6 +108,21 @@ export default defineComponent({
     @include center-with-margin($max-width: 250px, $top: 25px);
     height: 55px;
     padding: 5px;
+  }
+  &__disclosure {
+    padding: 10px;
+    max-width: 450px;
+    margin: auto;
+    text-align: center;
+    &__title {
+      margin: 20px 0;
+    }
+    &__example {
+      margin: 20px 0;
+      font-size: 14px;
+      cursor: pointer;
+      font-style: italic;
+    }
   }
 }
 </style>
