@@ -89,10 +89,10 @@
 </template>
 <script lang="ts">
 import mixpanel from "mixpanel-browser";
-import algoliasearch from "algoliasearch";
+// import algoliasearch from "algoliasearch";
 import { defineComponent } from "vue";
-const client = algoliasearch("LRR1BTFAV0", "0f2d062a2251b655532eb229db247a9b");
-const index = client.initIndex("Social Media Domain Experts");
+// const client = algoliasearch("LRR1BTFAV0", "0f2d062a2251b655532eb229db247a9b");
+// const index = client.initIndex("Social Media Domain Experts");
 
 export default defineComponent({
   name: "Results",
@@ -119,8 +119,9 @@ export default defineComponent({
         this.isLoading = true;
         const searchKeywords = this.$route.query.q as string;
         if (!searchKeywords) return;
-        const { hits } = await index.search(searchKeywords, {
-          removeWordsIfNoResults: "allOptional",
+        const { hits } = await $fetch("/api/search", {
+          method: "post",
+          body: { searchKeywords },
         });
         this.searchResults = hits;
         mixpanel.track("Performed Search", {

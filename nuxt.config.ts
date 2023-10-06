@@ -44,7 +44,7 @@ export default defineNuxtConfig({
           hid: "gtm-script2",
           innerHTML: `window.dataLayer = window.dataLayer || []; 
           function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
-          gtag('config', ${process.env.NUXT_ENV_GTM_ID});`,
+          gtag('config', '${process.env.NUXT_ENV_GTM_ID}');`,
         },
       ],
     },

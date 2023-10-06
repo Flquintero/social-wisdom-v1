@@ -116,7 +116,7 @@ export default defineComponent({
           template_id: "d-43fb730f04f8438a806c72efc9fc7307",
           dynamic_template_data: this.formData,
         };
-        await useFetch("/api/email", { method: "post", body: emailPayload });
+        await $fetch("/api/email", { method: "post", body: emailPayload });
         this.$router.push({
           name: "success",
           query: { account: this.$route.query.account },
