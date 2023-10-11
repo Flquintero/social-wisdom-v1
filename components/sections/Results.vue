@@ -26,11 +26,11 @@
             :key="item.id"
           >
             <div class="results-content__body__item__image">
-              <img src="/img/creator.jpg" />
+              <img :src="item.image" />
             </div>
             <div class="results-content__body__item__content">
               <div class="results-content__body__item__title">
-                <p>{{ item.name }}</p>
+                <p>{{ item.full_name }}</p>
               </div>
               <div class="results-content__body__item__social">
                 <div class="results-content__body__item__social__icon">
@@ -38,27 +38,24 @@
                 </div>
                 <div class="results-content__body__item__social__info">
                   <p class="results-content__body__item__social__info__handle">
-                    @saschafitness
+                    {{ item.instagram_handle }}
                   </p>
                   <p
                     class="results-content__body__item__social__info__followers"
                   >
-                    5.5M followers
+                    {{ item.instagram_followers }} followers
                   </p>
                 </div>
                 <div class="results-content__body__item__social__link">
                   <a
-                    href="https://www.instagram.com/saschafitness/?hl=en"
+                    :href="`https://www.instagram.com/${item.instagram_handle}/?hl='en'`"
                     target="none"
                     >🔗</a
                   >
                 </div>
               </div>
               <div class="results-content__body__item__description">
-                <p>
-                  Fitness-Nutrition Coach CEO-Sascha Fitness Corp Book author
-                  Mamá Youtube: Sascha Fitness
-                </p>
+                <div v-html="item.description"></div>
                 <div class="results-content__body__item__badges"></div>
               </div>
               <div class="results-content__body__item__button">
@@ -242,9 +239,9 @@ export default defineComponent({
         }
       }
       &__description {
-        p {
+        div {
           margin: 20px 0;
-          font-size: 14px;
+          font-size: 12px;
         }
       }
       &__button {
