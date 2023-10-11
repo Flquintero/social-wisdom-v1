@@ -1,0 +1,170 @@
+// Utility classes
+$colors: (
+    'dark-grey-blue': $dark-grey,
+    'dark-grey-green': $dark,
+    'green': $dark-grey,
+    'white': $white,
+    'darker-white': $darker-white,
+    'pale-grey': $pale-grey,
+    'pale': $pale,
+    'warm-grey': $warm-grey,
+    'mid-grey': $mid-grey,
+    'obsidian': $obsidian,
+    'dark-grey': $dark-grey,
+    'darker-grey': $darker-grey,
+    'black': $black,
+    'dark-red': $dark-red,
+    'primary': $primary,
+    'secondary': $secondary,
+    'error': $error
+);
+
+@mixin text-color($color) {
+    color: map-get($colors, #{$color}) !important;
+}
+
+// Flexbox helper
+// Example usage: @include flex-config($flex-direction: row, $align-items: center, $justify-content: center);
+@mixin flex-config($justify-content: false,
+    $flex: false,
+    $flex-direction: false,
+    $align-items: false,
+    $flex-wrap: false) {
+    display: flex;
+
+    @if $justify-content  !=false {
+        justify-content: $justify-content;
+    }
+
+    @if $flex  !=false {
+        flex: $flex;
+    }
+
+    @if $flex-direction  !=false {
+        flex-direction: $flex-direction;
+    }
+
+    @if $align-items  !=false {
+        align-items: $align-items;
+    }
+
+    @if $flex-wrap  !=false {
+        flex-wrap: $flex-wrap;
+    }
+}
+
+//Keep section spaces consistent
+
+@mixin view-web-gutter(){
+    margin: 0 100px;
+}
+@mixin view-mobile-gutter() {
+    margin: 0 20px;
+}
+
+// img auto resize to fit parent
+
+@mixin image-fit(){
+    height: auto;
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+// uses margin to center
+
+@mixin center-with-margin($max-width, $top: 0, $bottom: 0) {
+    max-width: $max-width;
+    margin: $top auto $bottom;
+}
+
+// Margin and Padding helpers
+// TODO: we should have spacing variables to make sure our spacing is consistent
+@mixin margin($amount, $direction: 'all') {
+    @if $direction =='all' {
+        margin: $amount;
+    }
+
+    @if $direction =='x' {
+        margin-right: $amount;
+        margin-left: $amount;
+    }
+
+    @if $direction =='y' {
+        margin-top: $amount;
+        margin-bottom: $amount;
+    }
+
+    @if $direction =='top' {
+        margin-top: $amount;
+    }
+
+    @if $direction =='bottom' {
+        margin-bottom: $amount;
+    }
+
+    @if $direction =='left' {
+        margin-left: $amount;
+    }
+
+    @if $direction =='right' {
+        margin-right: $amount;
+    }
+}
+
+@mixin padding($amount, $direction: 'all') {
+    @if $direction =='all' {
+        padding: $amount;
+    }
+
+    @if $direction =='x' {
+        padding-right: $amount;
+        padding-left: $amount;
+    }
+
+    @if $direction =='y' {
+        padding-top: $amount;
+        padding-bottom: $amount;
+    }
+
+    @if $direction =='top' {
+        padding-top: $amount;
+    }
+
+    @if $direction =='bottom' {
+        padding-bottom: $amount;
+    }
+
+    @if $direction =='left' {
+        padding-left: $amount;
+    }
+
+    @if $direction =='right' {
+        padding-right: $amount;
+    }
+}
+
+// Adds an ellipsis to text that overflows
+@mixin truncate($char-length: false) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    @if $char-length  !=false {
+        width: #{$char-length}ch;
+    }
+}
+
+// adds ellipsis at the end of a block of text if content goes beyond the lines-limit count
+@mixin line-clamp($lines-limit) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines-limit;
+    overflow: hidden;
+}
+
+@mixin box-shadow (){
+    -webkit-box-shadow: 0px 1px 1px 0px rgba(48, 45, 45, 0.25);
+    -moz-box-shadow: 0px 1px 1px 0px rgba(48, 45, 45, 0.25);
+    box-shadow: 0px 1px 1px 0px rgba(48, 45, 45, 0.25);  
+}

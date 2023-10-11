@@ -11,6 +11,17 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxtjs/google-fonts": "^3.0.2",
+    "@types/mixpanel-browser": "^2.47.3",
     "nuxt": "^3.7.3"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "algoliasearch": "^4.20.0",
+    "keyword-extractor": "^0.0.27",
+    "logrocket": "^6.0.0",
+    "mixpanel-browser": "^2.47.0",
+    "sass": "^1.68.0",
+    "vue-router": "^4.2.5"
   }
 }
