@@ -23,11 +23,11 @@
         </div>
         <!-- <div class="footer-layout__terms"><h3>&nbsp;|&nbsp;</h3></div> -->
         <div class="footer-layout__terms">
-          <NuxtLink to="/terms-and-conditions">Terms and Conditions</NuxtLink>
+          <a href="/terms-and-conditions">Terms and Conditions</a>
         </div>
         <!-- <div class="footer-layout__terms"><h3>&nbsp;|&nbsp;</h3></div> -->
         <div class="footer-layout__privacy">
-          <NuxtLink to="/privacy-policy">Privacy Policy</NuxtLink>
+          <a href="/privacy-policy">Privacy Policy</a>
         </div>
       </div>
     </div>

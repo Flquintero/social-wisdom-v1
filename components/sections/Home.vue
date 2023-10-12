@@ -122,6 +122,10 @@ export default defineComponent({
       font-size: 14px;
       cursor: pointer;
       font-style: italic;
+      &:hover {
+        text-decoration: underline;
+        font-weight: 600;
+      }
     }
   }
 }
