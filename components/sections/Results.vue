@@ -75,8 +75,8 @@
               Seems like we haven't socially sourced the suggestions for this.
             </h1>
             <h3>
-              We have noted your search and added it to
-              <NuxtLink>The SW Project</NuxtLink>
+              We have noted your search and added it to the
+              <NuxtLink to="/project">SW Project</NuxtLink>
             </h3>
           </div>
         </template>
@@ -179,6 +179,7 @@ export default defineComponent({
       text-align: center;
       h3 {
         margin-top: 10px;
+        cursor: pointer;
       }
     }
     &__item {

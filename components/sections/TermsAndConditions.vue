@@ -1,6 +1,9 @@
 <template>
   <div class="terms-and-conditions-content">
-    <h1>Terms And Conditions</h1>
+    <div
+      name="termly-embed"
+      data-id="ec534090-f04d-402e-b186-88ba7ca5a041"
+    ></div>
   </div>
 </template>
 <script lang="ts">

@@ -1,6 +1,9 @@
 <template>
   <div class="privacy-policy-content">
-    <h1>Privacy Policy</h1>
+    <div
+      name="termly-embed"
+      data-id="2f9e2a2d-29c7-4e63-a907-f942af27eb29"
+    ></div>
   </div>
 </template>
 <script lang="ts">
@@ -18,6 +21,6 @@ export default defineComponent({
 <style lang="scss" scoped>
 .privacy-policy-content {
   text-align: center;
-  margin: 20px;
+  margin: 0 20px;
 }
 </style>
