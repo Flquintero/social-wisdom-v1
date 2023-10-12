@@ -124,7 +124,6 @@ export default defineComponent({
       font-style: italic;
       &:hover {
         text-decoration: underline;
-        font-weight: 600;
       }
     }
   }
