@@ -21,7 +21,7 @@
               v-bind="{ placeholder: 'Enter Amount...', type: 'number' }"
             />
           </div>
-          <h5>It could be anything from $1 up!</h5>
+          <!-- <h5>It could be anything from $1 up!</h5> -->
         </div>
       </div>
       <div class="details-content__details">
