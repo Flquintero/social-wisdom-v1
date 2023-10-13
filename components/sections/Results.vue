@@ -12,11 +12,6 @@
             These are the best social media accounts to help you find an answer:
           </h2>
         </div>
-        <!-- <div class="results-content__header__question">
-        <ClientOnly>
-          <p>{{ currentQuestion }}</p>
-        </ClientOnly>
-      </div> -->
       </div>
       <div class="results-content__body">
         <template v-if="hasSearchResults">
@@ -86,10 +81,7 @@
 </template>
 <script lang="ts">
 import mixpanel from "mixpanel-browser";
-// import algoliasearch from "algoliasearch";
 import { defineComponent } from "vue";
-// const client = algoliasearch("LRR1BTFAV0", "0f2d062a2251b655532eb229db247a9b");
-// const index = client.initIndex("Social Media Domain Experts");
 
 export default defineComponent({
   name: "Results",
@@ -159,9 +151,6 @@ export default defineComponent({
   }
   &__header {
     text-align: center;
-    // &__title {
-    //   margin-bottom: 25px;
-    // }
     &__question {
       font-size: 18px;
     }
@@ -189,21 +178,38 @@ export default defineComponent({
       @include box-shadow;
       min-width: 250px;
       max-width: 250px;
+      height: 500px;
+      max-height: 500px;
       &__content {
         padding: 10px;
+        height: calc(100% - 170px);
       }
       &__image {
         @include flex-config($justify-content: center, $align-items: center);
-        padding: 10px 20px 5px;
+        padding: 10px 20px;
+        height: 170px;
+        max-height: 170px;
         img {
           border: 1px solid $border;
           border-radius: 100%;
         }
       }
       &__title {
-        font-size: 20px;
+        font-size: 15px;
         text-align: center;
         font-weight: 600;
+        height: 60px;
+        max-height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          height: 100%;
+        }
       }
       &__social {
         margin: 10px 0;
@@ -240,6 +246,8 @@ export default defineComponent({
         }
       }
       &__description {
+        height: 125px;
+        max-height: 125px;
         div {
           margin: 20px 0;
           font-size: 12px;
