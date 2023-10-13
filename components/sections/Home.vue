@@ -18,6 +18,12 @@
             value: searchValue,
           }"
         />
+        <div class="home-content__powered">
+          <div class="home-content__powered__text"><span>Powered by</span></div>
+          <div class="home-content__powered__logo">
+            <img src="~/public/img/Algolia-logo-blue.png" />
+          </div>
+        </div>
       </div>
       <div class="home-content__actions">
         <BaseButton
@@ -104,8 +110,19 @@ export default defineComponent({
   &__input {
     @include center-with-margin($max-width: 650px, $top: 25px);
   }
+  &__powered {
+    margin: 5px 0;
+    font-size: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__logo {
+      width: 40px;
+      margin: 0 5px;
+    }
+  }
   &__actions {
-    @include center-with-margin($max-width: 250px, $top: 25px);
+    @include center-with-margin($max-width: 250px, $top: 15px);
     height: 55px;
     padding: 5px;
   }
