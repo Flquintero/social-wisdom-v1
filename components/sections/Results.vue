@@ -250,6 +250,7 @@ export default defineComponent({
         max-height: 125px;
         overflow-y: hidden;
         margin-bottom: 15px;
+        word-break: break-word;
         div {
           // margin: 20px 0;
           font-size: 12px;
