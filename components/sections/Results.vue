@@ -176,8 +176,8 @@ export default defineComponent({
       border: 1px solid $border;
       border-radius: 8px;
       @include box-shadow;
-      min-width: 250px;
-      max-width: 250px;
+      min-width: 275px;
+      max-width: 275px;
       height: 500px;
       max-height: 500px;
       &__content {
