@@ -248,8 +248,10 @@ export default defineComponent({
       &__description {
         height: 125px;
         max-height: 125px;
+        overflow-y: hidden;
+        margin-bottom: 15px;
         div {
-          margin: 20px 0;
+          // margin: 20px 0;
           font-size: 12px;
         }
       }
