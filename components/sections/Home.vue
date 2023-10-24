@@ -37,7 +37,7 @@
       <div class="home-content__disclosure">
         <h4 class="home-content__disclosure__title">
           We are currently in beta and only support questions related to
-          <b>new parents / mothers</b> like:
+          <b>parenting</b> like:
         </h4>
         <p @click="submitQuickSearch" class="home-content__disclosure__example">
           {{ exampleQuestion }}
