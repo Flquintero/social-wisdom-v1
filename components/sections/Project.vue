@@ -1,6 +1,6 @@
 <template>
   <div class="project-content">
-    <h1 class="project-content__title">The Social Wisdom Project</h1>
+    <h1 class="project-content__title">The Social Wisdom Database</h1>
     <h3 class="project-content__explanation">
       An open source project with the goal of creating a database of curated
       social media accounts, from any platform, that can answer questions for
