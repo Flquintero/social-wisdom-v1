@@ -246,8 +246,8 @@ export default defineComponent({
         }
       }
       &__description {
-        height: 125px;
-        max-height: 125px;
+        height: 120px;
+        max-height: 120px;
         overflow-y: hidden;
         margin-bottom: 15px;
         word-break: break-word;
