@@ -1,6 +1,6 @@
 <template>
-  <div class="database-list">
-    <div class="database-list__categories">
+  <div class="database-filter">
+    <div class="database-filter__categories">
       <BasePill
         v-for="category in mainCategories"
         :is-active="category === currentMainCategory"
@@ -9,7 +9,8 @@
         @click="setCurrentMainCategory(category)"
       />
     </div>
-    <div class="database-list__results">
+    <div class="database-filter__divider"></div>
+    <div class="database-filter__results">
       <BasePill
         v-for="subCategory in subCategories"
         :is-active="subCategory === currentSubCategory"
@@ -24,7 +25,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "DatabaseList",
+  name: "DatabaseFilter",
   data: () => {
     return {
       currentMainCategory: null as null | string,
@@ -61,12 +62,18 @@ export default defineComponent({
 });
 </script>
 <style lang="scss" scoped>
-.database-list {
+.database-filter {
   padding: 25px;
   &__categories {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  &__divider {
+    height: 2px;
+    background-color: black;
+    max-width: 20px;
+    margin: 10px auto;
   }
   &__results {
     display: flex;

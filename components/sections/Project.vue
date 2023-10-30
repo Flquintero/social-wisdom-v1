@@ -9,7 +9,7 @@
       Imagine a friend suggesting a social media account to follow to help with
       a specific situation.
     </h3>
-    <SectionProjectDatabaseList />
+    <SectionProjectDatabaseFilter />
   </div>
 </template>
 <script lang="ts">
