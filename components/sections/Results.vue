@@ -71,7 +71,7 @@
             </h1>
             <h3>
               We have noted your search and added it to the
-              <NuxtLink to="/project">SW Database</NuxtLink>
+              <NuxtLink to="/project">The Database</NuxtLink>
             </h3>
           </div>
         </template>
