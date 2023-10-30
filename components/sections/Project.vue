@@ -26,14 +26,17 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .project-content {
-  text-align: center;
   padding: 25px;
   width: 100%;
+  &__title {
+    text-align: center;
+  }
   &__explanation,
   &__requirement,
   &__platform {
     @include center-with-margin($max-width: 800px, $top: 40px, $bottom: 40px);
     font-size: 16px;
+    text-align: center;
   }
 }
 </style>

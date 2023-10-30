@@ -10,7 +10,7 @@
       />
     </div>
     <div class="database-filter__divider"></div>
-    <div class="database-filter__results">
+    <div class="database-filter__subcategories">
       <BasePill
         v-for="subCategory in subCategories"
         :is-active="subCategory === currentSubCategory"
@@ -19,15 +19,26 @@
         @click="setCurrentSubCategory(subCategory)"
       />
     </div>
+    <div class="database-filter__results">
+      <FunctionalResultItem
+        v-for="item in searchResults"
+        :item="item"
+        :key="item.instagram_handle"
+        @item-chosen="chooseExpert($event)"
+      />
+    </div>
   </div>
 </template>
 <script lang="ts">
+import mixpanel from "mixpanel-browser";
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "DatabaseFilter",
   data: () => {
     return {
+      isLoading: false,
+      searchResults: null as null | any,
       currentMainCategory: null as null | string,
       currentSubCategory: null as null | string,
       mainCategories: ["parenting"], // abstract it
@@ -48,15 +59,31 @@ export default defineComponent({
     };
   },
   created() {
-    this.currentMainCategory = this.mainCategories[0];
-    this.currentSubCategory = this.subCategories[0];
+    this.setCurrentMainCategory(this.mainCategories[0]);
+    this.setCurrentSubCategory(this.subCategories[0]);
   },
   methods: {
     setCurrentMainCategory(category: string) {
       this.currentMainCategory = category;
     },
-    setCurrentSubCategory(subCategory: string) {
+    async setCurrentSubCategory(subCategory: string) {
       this.currentSubCategory = subCategory;
+      try {
+        this.isLoading = true;
+        const { hits } = await $fetch("/api/filter", {
+          method: "post",
+          body: { subCategory },
+        });
+        this.searchResults = hits;
+        mixpanel.track("Performed Filter", {
+          keywords: subCategory,
+          results: hits,
+        });
+      } catch (error: any) {
+        console.log("error", error);
+      } finally {
+        this.isLoading = false;
+      }
     },
   },
 });
@@ -74,6 +101,13 @@ export default defineComponent({
     background-color: black;
     max-width: 20px;
     margin: 10px auto;
+  }
+  &__subcategories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    @include center-with-margin($max-width: 1200px, $top: 10px, $bottom: 25px);
   }
   &__results {
     display: flex;
