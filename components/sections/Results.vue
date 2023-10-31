@@ -15,53 +15,12 @@
       </div>
       <div class="results-content__body">
         <template v-if="hasSearchResults">
-          <div
-            class="results-content__body__item"
+          <FunctionalResultItem
             v-for="item in searchResults"
+            :item="item"
             :key="item.id"
-          >
-            <div class="results-content__body__item__image">
-              <img :src="item.image" />
-            </div>
-            <div class="results-content__body__item__content">
-              <div class="results-content__body__item__title">
-                <p>{{ item.full_name }}</p>
-              </div>
-              <div class="results-content__body__item__social">
-                <div class="results-content__body__item__social__icon">
-                  <img src="/img/IGlogo.png" />
-                </div>
-                <div class="results-content__body__item__social__info">
-                  <p class="results-content__body__item__social__info__handle">
-                    {{ item.instagram_handle }}
-                  </p>
-                  <p
-                    class="results-content__body__item__social__info__followers"
-                  >
-                    {{ item.instagram_followers }} followers
-                  </p>
-                </div>
-                <div class="results-content__body__item__social__link">
-                  <a
-                    :href="`https://www.instagram.com/${item.instagram_handle}/?hl='en'`"
-                    target="none"
-                    >🔗</a
-                  >
-                </div>
-              </div>
-              <div class="results-content__body__item__description">
-                <div v-html="item.description"></div>
-                <div class="results-content__body__item__badges"></div>
-              </div>
-              <div class="results-content__body__item__button">
-                <BaseButton
-                  @click.prevent="chooseExpert(item)"
-                  :button-text="`👋 Ask Question`"
-                  variant="primary"
-                />
-              </div>
-            </div>
-          </div>
+            @item-chosen="chooseExpert($event)"
+          />
         </template>
         <template v-else>
           <div class="results-content__body--empty">
@@ -71,7 +30,7 @@
             </h1>
             <h3>
               We have noted your search and added it to the
-              <NuxtLink to="/project">SW Database</NuxtLink>
+              <NuxtLink to="/project">The Database</NuxtLink>
             </h3>
           </div>
         </template>
@@ -168,96 +127,6 @@ export default defineComponent({
       text-align: center;
       h3 {
         margin-top: 10px;
-        cursor: pointer;
-      }
-    }
-    &__item {
-      margin: 20px;
-      border: 1px solid $border;
-      border-radius: 8px;
-      @include box-shadow;
-      min-width: 275px;
-      max-width: 275px;
-      height: 500px;
-      max-height: 500px;
-      &__content {
-        padding: 10px;
-        height: calc(100% - 170px);
-      }
-      &__image {
-        @include flex-config($justify-content: center, $align-items: center);
-        padding: 10px 20px;
-        height: 170px;
-        max-height: 170px;
-        img {
-          border: 1px solid $border;
-          border-radius: 100%;
-        }
-      }
-      &__title {
-        font-size: 15px;
-        text-align: center;
-        font-weight: 600;
-        height: 60px;
-        max-height: 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        p {
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-          height: 100%;
-        }
-      }
-      &__social {
-        margin: 10px 0;
-        @include flex-config();
-        background: #f9f9f9;
-        border-radius: 8px;
-        padding: 10px 0;
-        &__icon {
-          width: 40px;
-          @include flex-config($justify-content: center, $align-items: center);
-          img {
-            height: 25px;
-            width: 25px;
-          }
-        }
-        &__info {
-          flex-grow: 1;
-          @include flex-config($flex-direction: column);
-          &__handle {
-            font-size: 14px;
-            font-weight: 500;
-          }
-          &__followers {
-            font-size: 12px;
-            font-weight: 200;
-          }
-        }
-        &__link {
-          width: 45px;
-          @include flex-config($justify-content: center, $align-items: center);
-          a {
-            text-decoration: none;
-          }
-        }
-      }
-      &__description {
-        height: 120px;
-        max-height: 120px;
-        overflow-y: hidden;
-        margin-bottom: 15px;
-        word-break: break-word;
-        div {
-          // margin: 20px 0;
-          font-size: 12px;
-        }
-      }
-      &__button {
-        height: 40px;
         cursor: pointer;
       }
     }

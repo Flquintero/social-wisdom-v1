@@ -24,6 +24,15 @@
           <!-- <h5>It could be anything from $1 up!</h5> -->
         </div>
       </div>
+      <div v-if="!hasQuery" class="details-content__details">
+        <h3>Seems you haven't asked a question yet, enter it below:</h3>
+        <div class="details-content__details__form">
+          <BaseInput
+            @input="setForm($event, 'question')"
+            v-bind="{ placeholder: 'Enter question...', type: 'text' }"
+          />
+        </div>
+      </div>
       <div class="details-content__details">
         <h3>
           Also, we would need your info, to send you the answer (nothing else):
@@ -87,9 +96,16 @@ export default defineComponent({
       return !!Object.values(this.formData).filter((item) => item === null)
         .length;
     },
+    hasQuery(): boolean {
+      return !!(this.$route.query.q as string);
+    },
   },
   mounted() {
-    this.formData.question = localStorage.getItem("CurrentQuestion");
+    if (!this.hasQuery) {
+      localStorage.removeItem("CurrentQuestion");
+    } else {
+      this.formData.question = localStorage.getItem("CurrentQuestion");
+    }
     this.formData.expert = this.$route.query.account as string;
   },
   methods: {
@@ -125,6 +141,7 @@ export default defineComponent({
         console.log("Registration Error", error);
       } finally {
         this.isSubmiting = false;
+        localStorage.removeItem("CurrentQuestion");
       }
     },
   },

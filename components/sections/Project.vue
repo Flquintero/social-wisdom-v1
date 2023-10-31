@@ -5,17 +5,14 @@
       An open source project with the goal of creating a database of curated
       social media accounts, from any platform, that can answer questions for
       specific topics.
-    </h3>
-    <h3 class="project-content__requirement">
       <b>The only requirement is that it needs to be nominated by someone</b>.
       Imagine a friend suggesting a social media account to follow to help with
       a specific situation.
     </h3>
-    <h3 class="project-content__platform">
-      We are currently building out the nomination form and dashboard of topics.
-      But for now you can contact us at <b>topics@socialwisdom.co</b> and submit
-      a topic and one, two or more accounts that you think are domain experts.
-    </h3>
+    <div class="project-content__nominate">
+      <FunctionalNominateExpert />
+    </div>
+    <SectionProjectDatabaseFilter />
   </div>
 </template>
 <script lang="ts">
@@ -32,14 +29,20 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .project-content {
-  text-align: center;
   padding: 25px;
   width: 100%;
+  &__title {
+    text-align: center;
+  }
   &__explanation,
   &__requirement,
   &__platform {
-    @include center-with-margin($max-width: 800px, $top: 40px, $bottom: 40px);
+    @include center-with-margin($max-width: 800px, $top: 40px, $bottom: 10px);
     font-size: 16px;
+    text-align: center;
+  }
+  &__nominate {
+    @include center-with-margin($max-width: 400px, $top: 30px, $bottom: 10px);
   }
 }
 </style>
