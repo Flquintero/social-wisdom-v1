@@ -34,7 +34,7 @@ export default defineComponent({
   &__explanation,
   &__requirement,
   &__platform {
-    @include center-with-margin($max-width: 800px, $top: 40px, $bottom: 40px);
+    @include center-with-margin($max-width: 800px, $top: 40px, $bottom: 10px);
     font-size: 16px;
     text-align: center;
   }

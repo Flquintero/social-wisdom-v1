@@ -85,6 +85,15 @@ export default defineComponent({
         this.isLoading = false;
       }
     },
+    chooseExpert(item: any) {
+      mixpanel.track("Expert Chosen", {
+        expert: item,
+      });
+      this.$router.push({
+        name: "details",
+        query: { account: item.full_name },
+      });
+    },
   },
 });
 </script>
