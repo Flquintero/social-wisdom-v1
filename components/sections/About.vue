@@ -42,6 +42,9 @@
         clear communication for all stakeholders of our community.
       </p>
     </div>
+    <div class="about-content__contact">
+      <h3>If you would like to get in touch: <b>hello@socialwisdom.co</b></h3>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -77,6 +80,10 @@ export default defineComponent({
       text-decoration: underline;
       margin: 10px 0;
     }
+  }
+  &__contact {
+    @include center-with-margin($max-width: 800px, $bottom: 40px);
+    text-align: center;
   }
 }
 </style>
