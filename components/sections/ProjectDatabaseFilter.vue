@@ -104,6 +104,12 @@ export default defineComponent({
     display: flex;
     justify-content: center;
     align-items: center;
+    @include mobile {
+      .pill {
+        font-size: 11px;
+        width: 100px;
+      }
+    }
   }
   &__divider {
     height: 2px;
@@ -117,6 +123,12 @@ export default defineComponent({
     align-items: center;
     flex-wrap: wrap;
     @include center-with-margin($max-width: 1200px, $top: 10px, $bottom: 25px);
+    @include mobile {
+      .pill {
+        font-size: 11px;
+        width: 100px;
+      }
+    }
   }
   &__results {
     display: flex;
