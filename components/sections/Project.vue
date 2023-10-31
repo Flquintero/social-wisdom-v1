@@ -9,6 +9,9 @@
       Imagine a friend suggesting a social media account to follow to help with
       a specific situation.
     </h3>
+    <div class="project-content__nominate">
+      <FunctionalNominateExpert />
+    </div>
     <SectionProjectDatabaseFilter />
   </div>
 </template>
@@ -37,6 +40,9 @@ export default defineComponent({
     @include center-with-margin($max-width: 800px, $top: 40px, $bottom: 10px);
     font-size: 16px;
     text-align: center;
+  }
+  &__nominate {
+    @include center-with-margin($max-width: 400px, $top: 30px, $bottom: 10px);
   }
 }
 </style>
