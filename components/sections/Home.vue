@@ -1,61 +1,106 @@
 <template>
-  <div class="home-content">
-    <div class="home-content__banner">
-      <div>
-        <span
-          >💡 All the social accounts that answer are curated by people just
-          like you:</span
-        >
+  <div class="home-content__wrapper">
+    <div class="home-content">
+      <div class="home-content__banner">
+        <div>
+          <span
+            >💡 All the social accounts that help answer your questions are
+            curated by people just like you:</span
+          >
+        </div>
+        <div class="home-content__banner__link">
+          &nbsp;&nbsp;<NuxtLink to="/project">Check out the list here</NuxtLink>
+        </div>
       </div>
-      <div class="home-content__banner__link">
-        &nbsp;&nbsp;<NuxtLink to="/project">Checkout the list</NuxtLink>
+      <div class="home-content__header">
+        <div class="home-content__header__logo">
+          <BaseLogo />
+        </div>
+        <div class="home-content__header__title">
+          <!-- <h1>Social Wisdom</h1> -->
+          <h3>Get your questions answered with the power of social media</h3>
+        </div>
       </div>
-    </div>
-    <div class="home-content__header">
-      <div class="home-content__header__logo">
-        <BaseLogo />
-      </div>
-      <div class="home-content__header__title">
-        <!-- <h1>Social Wisdom</h1> -->
-        <h3>Get your questions answered with the power of social media</h3>
-      </div>
-    </div>
-    <form @submit.prevent="submitSearch">
-      <div class="home-content__input">
-        <BaseInput
-          @input="setSearchValue($event)"
-          v-bind="{
-            placeholder: 'Enter a question...',
-            value: searchValue,
-          }"
-        />
-        <div class="home-content__powered">
-          <div class="home-content__powered__text"><span>Powered by</span></div>
-          <div class="home-content__powered__logo">
-            <img src="~/public/img/Algolia-logo-blue.png" />
+      <form @submit.prevent="submitSearch">
+        <div class="home-content__input">
+          <BaseInput
+            @input="setSearchValue($event)"
+            v-bind="{
+              placeholder: 'Enter a question...',
+              value: searchValue,
+            }"
+          />
+          <div class="home-content__powered">
+            <div class="home-content__powered__text">
+              <span>Powered by</span>
+            </div>
+            <div class="home-content__powered__logo">
+              <img src="~/public/img/Algolia-logo-blue.png" />
+            </div>
+          </div>
+        </div>
+        <div class="home-content__actions">
+          <BaseButton
+            type="submit"
+            @click.prevent="submitSearch"
+            :disabled="!searchValue"
+            :button-text="`🔎 Search`"
+            variant="primary"
+          />
+        </div>
+      </form>
+      <div class="home-content__info-helpers">
+        <div class="home-content__disclosure">
+          <h4 class="home-content__disclosure__title">
+            We are currently in beta and only support questions related to
+            <b>parenting</b> like:
+          </h4>
+          <p
+            @click="submitQuickSearch"
+            class="home-content__disclosure__example"
+          >
+            {{ exampleQuestion }}
+          </p>
+        </div>
+        <div class="home-content__how-to">
+          <div class="home-content__how-to__title">
+            <span>How it works</span>
+          </div>
+          <div class="home-content__how-to__button">
+            <div><span>👇</span></div>
           </div>
         </div>
       </div>
-      <div class="home-content__actions">
-        <BaseButton
-          type="submit"
-          @click.prevent="submitSearch"
-          :disabled="!searchValue"
-          :button-text="`🔎 Search`"
-          variant="primary"
-        />
+    </div>
+    <div class="home-content__steps">
+      <div class="home-content__steps__item">
+        <div class="home-content__steps__item__digit"><span>1</span></div>
+        <div class="home-content__steps__item__text">
+          <p>
+            Enter a question related to a topic (we only support
+            <b>parenting</b> right now).
+          </p>
+        </div>
       </div>
-      <div class="home-content__disclosure">
-        <h4 class="home-content__disclosure__title">
-          We are currently in beta and only support questions related to
-          <b>parenting</b> like:
-        </h4>
-        <p @click="submitQuickSearch" class="home-content__disclosure__example">
-          {{ exampleQuestion }}
-        </p>
+      <div class="home-content__steps__item">
+        <div class="home-content__steps__item__digit"><span>2</span></div>
+        <div class="home-content__steps__item__text">
+          <p>
+            You will get a list of social media accounts that are relevant and
+            could answer that question.
+          </p>
+        </div>
       </div>
-    </form>
-    <div></div>
+      <div class="home-content__steps__item">
+        <div class="home-content__steps__item__digit"><span>3</span></div>
+        <div class="home-content__steps__item__text">
+          <p>
+            Choose an an account to help with the question and enter the details
+            so they send you their answer.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -99,6 +144,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .home-content {
   height: 100vh;
+  @include flex-config($flex-direction: column);
   &__banner {
     padding: 10px;
     font-size: 14px;
@@ -151,10 +197,17 @@ export default defineComponent({
     height: 55px;
     padding: 5px;
   }
+  &__info-helpers {
+    @include flex-config(
+      $flex-direction: column,
+      $justify-content: space-between
+    );
+    height: 100%;
+  }
   &__disclosure {
     padding: 10px;
     max-width: 450px;
-    margin: auto;
+    margin: 0 auto;
     text-align: center;
     &__title {
       margin: 20px 0;
@@ -166,6 +219,43 @@ export default defineComponent({
       font-style: italic;
       &:hover {
         text-decoration: underline;
+      }
+    }
+  }
+  &__how-to {
+    @include center-with-margin($max-width: 250px, $top: 15px);
+    text-align: center;
+    font-weight: 700;
+    cursor: pointer;
+    &__title {
+      font-size: 13px;
+    }
+    &__button {
+      border: 1px solid #d4ebff;
+      border-radius: 40px;
+      width: 40px;
+      height: 40px;
+      margin: 10px auto;
+      @include flex-config($justify-content: center, $align-items: center);
+    }
+  }
+  &__steps {
+    @include center-with-margin($max-width: 600px, $top: 50px, $bottom: 50px);
+    &__item {
+      @include flex-config($align-items: center);
+      margin: 20px 0;
+      &__digit {
+        min-width: 30px;
+        height: 30px;
+        border: 1px solid #d4ebff;
+        border-radius: 40px;
+        margin-right: 20px;
+        @include flex-config($justify-content: center, $align-items: center);
+        font-weight: 600;
+        font-size: 16px;
+      }
+      &__text {
+        font-size: 16px;
       }
     }
   }
