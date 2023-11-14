@@ -21,6 +21,7 @@
         </div>
         <div class="result-item__social__link">
           <a
+            @click="handleInstagramExpertLink(item.instagram_handle)"
             :href="`https://www.instagram.com/${item.instagram_handle}/?hl='en'`"
             target="none"
             >🔗</a
@@ -42,12 +43,20 @@
   </div>
 </template>
 <script lang="ts">
+import mixpanel from "mixpanel-browser";
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ResultItem",
   props: {
     item: Object as any,
+  },
+  methods: {
+    handleInstagramExpertLink(instagramHandle: string) {
+      mixpanel.track("Clicked Expert IG Account", {
+        expert: instagramHandle,
+      });
+    },
   },
 });
 </script>
