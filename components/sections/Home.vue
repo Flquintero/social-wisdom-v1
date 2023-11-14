@@ -145,6 +145,7 @@ export default defineComponent({
 .home-content {
   height: 100vh;
   @include flex-config($flex-direction: column);
+  padding: 0 20px;
   &__banner {
     padding: 10px;
     font-size: 14px;
@@ -154,6 +155,7 @@ export default defineComponent({
       flex-direction: column;
       padding: 20px;
       text-align: center;
+      font-size: 12px;
       &__link {
         margin-top: 10px;
       }
