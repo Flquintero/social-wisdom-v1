@@ -6,7 +6,7 @@
 </template>
 <style lang="scss">
 .default-layout {
-  min-height: 100vh;
+  min-height: 100%;
   width: 100vw;
 }
 </style>

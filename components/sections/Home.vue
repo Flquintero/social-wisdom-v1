@@ -1,5 +1,15 @@
 <template>
   <div class="home-content">
+    <div class="home-content__banner">
+      <div>
+        <span>💡 All the results are curated by people just like you:</span>
+      </div>
+      <div>
+        &nbsp;&nbsp;<NuxtLink to="/project"
+          >Checkout the list of domain experts</NuxtLink
+        >
+      </div>
+    </div>
     <div class="home-content__header">
       <div class="home-content__header__logo">
         <BaseLogo />
@@ -88,8 +98,21 @@ export default defineComponent({
 .home-content {
   height: 100%;
   width: 100%;
-  padding: 10px 20px;
+  &__banner {
+    padding: 20px;
+    font-size: 14px;
+    background-color: $light-blue;
+    @include flex-config($justify-content: center, $align-items: center);
+    @include mobile {
+      flex-direction: column;
+      padding: 20px;
+    }
+    span {
+      font-weight: 00;
+    }
+  }
   &__header {
+    padding: 10px 20px;
     @include flex-config(
       $flex-direction: column,
       $justify-content: center,
