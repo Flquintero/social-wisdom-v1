@@ -57,7 +57,7 @@ export default defineNuxtConfig({
           s.parentNode.insertBefore(t,s)}(window, document,'script',
           'https://connect.facebook.net/en_US/fbevents.js');
           fbq('init', '${process.env.NUXT_ENV_FACEBOOK_PIXEL_ID}');
-          fbq('track', 'PageView');`,
+          fbq('track', 'PageView'); fbq('track', 'View content');`,
         },
         {
           hid: "termly-script-pp",
