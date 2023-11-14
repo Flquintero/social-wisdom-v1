@@ -36,9 +36,9 @@
 
 <style lang="scss" scoped>
 .footer-layout {
-  position: fixed;
-  bottom: 20px;
-  left: 0;
+  // position: fixed;
+  // bottom: 20px;
+  // left: 0;
   display: flex;
   justify-content: center;
   align-items: center;

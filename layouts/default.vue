@@ -6,7 +6,10 @@
 </template>
 <style lang="scss">
 .default-layout {
-  min-height: 100%;
-  width: 100vw;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 </style>
