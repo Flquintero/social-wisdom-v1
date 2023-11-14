@@ -243,6 +243,7 @@ export default defineComponent({
   }
   &__steps {
     @include center-with-margin($max-width: 600px, $top: 50px, $bottom: 50px);
+    padding: 20px;
     &__item {
       @include flex-config($align-items: center);
       margin: 20px 0;
