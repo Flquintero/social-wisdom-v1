@@ -2,12 +2,13 @@
   <div class="home-content">
     <div class="home-content__banner">
       <div>
-        <span>💡 All the results are curated by people just like you:</span>
-      </div>
-      <div>
-        &nbsp;&nbsp;<NuxtLink to="/project"
-          >Checkout the list of domain experts</NuxtLink
+        <span
+          >💡 All the social accounts that answer are curated by people just
+          like you:</span
         >
+      </div>
+      <div class="home-content__banner__link">
+        &nbsp;&nbsp;<NuxtLink to="/project">Checkout the list</NuxtLink>
       </div>
     </div>
     <div class="home-content__header">
@@ -54,6 +55,7 @@
         </p>
       </div>
     </form>
+    <div></div>
   </div>
 </template>
 <script lang="ts">
@@ -96,8 +98,7 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .home-content {
-  height: 100%;
-  width: 100%;
+  height: 100vh;
   &__banner {
     padding: 10px;
     font-size: 14px;
@@ -106,9 +107,10 @@ export default defineComponent({
     @include mobile {
       flex-direction: column;
       padding: 20px;
-    }
-    span {
-      font-weight: 00;
+      text-align: center;
+      &__link {
+        margin-top: 10px;
+      }
     }
   }
   &__header {
