@@ -144,6 +144,9 @@ export default defineComponent({
 <style lang="scss" scoped>
 .home-content {
   height: 100vh;
+  @include mobile() {
+    height: 100%;
+  }
   @include flex-config($flex-direction: column);
   &__banner {
     padding: 10px;
@@ -207,6 +210,7 @@ export default defineComponent({
     @include mobile() {
       justify-content: flex-start;
       margin-top: 30px;
+      height: auto;
     }
   }
   &__disclosure {
