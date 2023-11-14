@@ -99,7 +99,7 @@ export default defineComponent({
   height: 100%;
   width: 100%;
   &__banner {
-    padding: 20px;
+    padding: 10px;
     font-size: 14px;
     background-color: $light-blue;
     @include flex-config($justify-content: center, $align-items: center);
