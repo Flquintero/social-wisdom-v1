@@ -78,7 +78,7 @@
         <div class="home-content__steps__item__text">
           <p>
             Enter a question related to a topic (we only support
-            <b>parenting</b> right now).
+            <b>parenting</b> right now). For example: {{ exampleQuestion }}
           </p>
         </div>
       </div>
@@ -95,8 +95,8 @@
         <div class="home-content__steps__item__digit"><span>3</span></div>
         <div class="home-content__steps__item__text">
           <p>
-            Choose an an account to help with the question and enter the details
-            so they send you their answer.
+            Choose an account to help with the question and enter the details so
+            they send you their answer.
           </p>
         </div>
       </div>
@@ -145,7 +145,6 @@ export default defineComponent({
 .home-content {
   height: 100vh;
   @include flex-config($flex-direction: column);
-  padding: 0 20px;
   &__banner {
     padding: 10px;
     font-size: 14px;
@@ -180,6 +179,9 @@ export default defineComponent({
       }
     }
   }
+  form {
+    padding: 0 20px;
+  }
   &__input {
     @include center-with-margin($max-width: 650px, $top: 25px);
   }
@@ -200,13 +202,11 @@ export default defineComponent({
     padding: 5px;
   }
   &__info-helpers {
-    @include flex-config(
-      $flex-direction: column,
-      $justify-content: space-between
-    );
+    @include flex-config($flex-direction: column, $justify-content: flex-end);
     height: 100%;
   }
   &__disclosure {
+    display: none;
     padding: 10px;
     max-width: 450px;
     margin: 0 auto;
