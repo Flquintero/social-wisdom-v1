@@ -204,6 +204,10 @@ export default defineComponent({
   &__info-helpers {
     @include flex-config($flex-direction: column, $justify-content: flex-end);
     height: 100%;
+    @include mobile() {
+      justify-content: flex-start;
+      margin-top: 30px;
+    }
   }
   &__disclosure {
     display: none;
