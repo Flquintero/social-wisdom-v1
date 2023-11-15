@@ -21,7 +21,12 @@
               v-bind="{ placeholder: 'Enter Amount...', type: 'number' }"
             />
           </div>
-          <!-- <h5>It could be anything from $1 up!</h5> -->
+          <h5
+            v-if="formData.amount && formData.amount < 5"
+            class="details-content__bid__form__error"
+          >
+            😢 Amount should be at least $5
+          </h5>
         </div>
       </div>
       <div v-if="!hasQuery" class="details-content__details">
@@ -93,8 +98,10 @@ export default defineComponent({
       return this.$route.query.account as string;
     },
     isFormMissingData(): boolean {
-      return !!Object.values(this.formData).filter((item) => item === null)
-        .length;
+      return (
+        !!Object.values(this.formData).filter((item) => item === null).length ||
+        (this.formData.amount as number) < 5
+      );
     },
     hasQuery(): boolean {
       return !!(this.$route.query.q as string);
@@ -169,6 +176,9 @@ export default defineComponent({
         justify-content: center;
         align-items: center;
         margin-top: 20px;
+      }
+      &__error {
+        color: $error !important;
       }
     }
   }
