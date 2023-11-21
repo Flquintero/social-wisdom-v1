@@ -6,13 +6,13 @@
     <div class="footer-layout__wrapper">
       <div class="footer-layout__content__first-row">
         <div class="footer-layout__project">
-          <NuxtLink to="/project">The Database</NuxtLink>
+          <NuxtLink to="/project">Lista de expertos</NuxtLink>
         </div>
         <!-- <div class="footer-layout__separator">
           <h3>&nbsp;<span></span>&nbsp;</h3>
         </div> -->
         <div class="footer-layout__about">
-          <NuxtLink to="/about">About us</NuxtLink>
+          <NuxtLink to="/about">Nosotros</NuxtLink>
         </div>
       </div>
     </div>
