@@ -200,7 +200,7 @@ export default defineComponent({
   }
   &__actions {
     width: 100%;
-    max-width: 250px;
+    max-width: 280px;
     height: 45px;
     margin: 10px auto;
   }
