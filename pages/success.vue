@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SectionSuccess />
+    <SectionSuccessSpanish />
   </div>
 </template>
 <script lang="ts">

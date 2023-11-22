@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SectionDetails />
+    <SectionDetailsSpanish />
   </div>
 </template>
 <script lang="ts">
