@@ -2,23 +2,36 @@
   <div class="home-content__wrapper">
     <div class="home-content">
       <div class="home-content__header">
-        <div class="home-content__header__logo">
+        <!-- <div class="home-content__header__logo">
           <BaseLogo />
-        </div>
+        </div> -->
         <div class="home-content__header__title">
-          <h3>Recibe respuestas a tus preguntas en video</h3>
+          <h1>Recibe respuestas a tus preguntas en video</h1>
         </div>
       </div>
-      <form>
+      <template v-if="isLoading">
+        <div class="home-content__loading">
+          <img src="~/public/img/loaderIcon.svg?inline" />
+        </div>
+      </template>
+      <div v-else>
+        <div class="home-content__featured">
+          <FunctionalFeaturedItemSpanish
+            v-for="item in featuredResults"
+            :item="item"
+            :key="item.instagram_handle"
+            @item-chosen="chooseExpert($event)"
+          />
+        </div>
         <div class="home-content__actions">
           <BaseButton
-            type="submit"
+            type="button"
             @click.prevent="$router.push({ name: 'project' })"
             :button-text="`🔎 Ver Más`"
             variant="primary"
           />
         </div>
-      </form>
+      </div>
       <div class="home-content__info-helpers">
         <div class="home-content__how-to">
           <div class="home-content__how-to__title">
@@ -34,7 +47,11 @@
       <div class="home-content__steps__item">
         <div class="home-content__steps__item__digit"><span>1</span></div>
         <div class="home-content__steps__item__text">
-          <p>Escoje un experto de redes sociales.</p>
+          <p>
+            Escoje un experto de redes sociales. Todos los expertos han sido
+            recomendados por una persona como tu, si no son recomedados por
+            alguien no los incluimos.
+          </p>
         </div>
       </div>
       <div class="home-content__steps__item">
@@ -56,6 +73,7 @@
   </div>
 </template>
 <script lang="ts">
+import mixpanel from "mixpanel-browser";
 import keyword_extractor from "keyword-extractor";
 import { defineComponent } from "vue";
 
@@ -63,18 +81,45 @@ export default defineComponent({
   name: "HomeSpanish",
   data() {
     return {
+      isLoading: false,
       searchValue: null as any,
       searchKeywords: null as any,
+      featuredResults: null as any,
       exampleQuestion: "When will my baby sleep the whole night?",
     };
   },
+  created() {
+    this.getFeaturedExperts();
+  },
   methods: {
+    async getFeaturedExperts() {
+      try {
+        this.isLoading = true;
+        const { hits } = await $fetch("/api/featured", {
+          method: "post",
+        });
+        this.featuredResults = hits;
+      } catch (error: any) {
+        console.log("error", error);
+      } finally {
+        this.isLoading = false;
+      }
+    },
     setSearchValue(searchValue: any) {
       this.searchValue = searchValue.target.value;
     },
     submitQuickSearch() {
       this.searchValue = this.exampleQuestion;
       this.submitSearch();
+    },
+    chooseExpert(item: any) {
+      mixpanel.track("Expert Chosen", {
+        expert: item,
+      });
+      this.$router.push({
+        name: "details",
+        query: { account: item.full_name },
+      });
     },
     submitSearch() {
       const searchKeywordsRaw = keyword_extractor.extract(this.searchValue, {
@@ -96,10 +141,26 @@ export default defineComponent({
 <style lang="scss" scoped>
 .home-content {
   height: 100vh;
+  padding-top: 130px;
   @include mobile() {
     height: 100%;
   }
   @include flex-config($flex-direction: column);
+  &__loading {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__featured {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    @include center-with-margin($max-width: 800px, $top: 10px, $bottom: 25px);
+  }
   &__banner {
     padding: 10px;
     font-size: 14px;

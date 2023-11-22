@@ -1,12 +1,9 @@
 <template>
-  <div class="result-item">
+  <div @click.prevent="$emit('item-chosen', item)" class="result-item">
     <div class="result-item__image">
       <img :src="item.image" />
     </div>
     <div class="result-item__content">
-      <div class="result-item__title">
-        <p>{{ item.full_name }}</p>
-      </div>
       <div class="result-item__social">
         <div class="result-item__social__icon">
           <img src="/img/IGlogo.png" />
@@ -14,6 +11,9 @@
         <div class="result-item__social__info">
           <p class="result-item__social__info__handle">
             {{ item.instagram_handle }}
+          </p>
+          <p class="result-item__social__info__category">
+            {{ item.tertiary_category }}
           </p>
           <p class="result-item__social__info__followers">
             {{ item.instagram_followers }} followers
@@ -28,17 +28,6 @@
           >
         </div>
       </div>
-      <div class="result-item__description">
-        <div v-html="item.description"></div>
-        <div class="result-item__badges"></div>
-      </div>
-      <div class="result-item__button">
-        <BaseButton
-          @click.prevent="$emit('item-chosen', item)"
-          :button-text="`👋 Pedir Video Respuesta`"
-          variant="primary"
-        />
-      </div>
     </div>
   </div>
 </template>
@@ -47,7 +36,7 @@ import mixpanel from "mixpanel-browser";
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "ResultItem",
+  name: "FeaturedItem",
   props: {
     item: Object as any,
   },
@@ -62,14 +51,14 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .result-item {
-  margin: 20px;
-  border: 1px solid $border;
-  border-radius: 8px;
-  @include box-shadow;
-  min-width: 275px;
-  max-width: 275px;
-  height: 500px;
-  max-height: 500px;
+  cursor: pointer;
+  margin: 10px;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   &__content {
     padding: 10px;
     height: calc(100% - 170px);
@@ -77,8 +66,9 @@ export default defineComponent({
   &__image {
     @include flex-config($justify-content: center, $align-items: center);
     padding: 10px 20px;
-    height: 170px;
-    max-height: 170px;
+    height: 120px;
+    max-width: 150px;
+    max-height: 150px;
     img {
       border: 1px solid $border;
       border-radius: 100%;
@@ -103,6 +93,7 @@ export default defineComponent({
   }
   &__social {
     margin: 10px 0;
+    min-width: 200px;
     @include flex-config();
     background: #f9f9f9;
     border-radius: 8px;
@@ -120,7 +111,12 @@ export default defineComponent({
       @include flex-config($flex-direction: column);
       &__handle {
         font-size: 14px;
-        font-weight: 500;
+        font-weight: 600;
+      }
+      &__category {
+        font-size: 13px;
+        font-weight: 200;
+        text-transform: capitalize;
       }
       &__followers {
         font-size: 12px;

@@ -1,5 +1,6 @@
 <template>
   <div class="default-layout">
+    <LayoutHeader link-logo to="/" />
     <slot />
     <LayoutFooter />
   </div>
