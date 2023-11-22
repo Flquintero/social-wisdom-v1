@@ -10,7 +10,7 @@
         </div>
         <div class="result-item__social__info">
           <p class="result-item__social__info__handle">
-            {{ item.instagram_handle }}
+            @{{ item.instagram_handle }}
           </p>
           <p class="result-item__social__info__category">
             {{ item.tertiary_category }}
@@ -58,10 +58,17 @@ export default defineComponent({
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @include mobile {
+    min-width: 10px;
+  }
 
   &__content {
     padding: 10px;
     height: calc(100% - 170px);
+    @include mobile {
+      padding: 0;
+      height: auto;
+    }
   }
   &__image {
     @include flex-config($justify-content: center, $align-items: center);
@@ -69,6 +76,10 @@ export default defineComponent({
     height: 120px;
     max-width: 150px;
     max-height: 150px;
+    @include mobile {
+      max-width: 100px;
+      max-height: 100px;
+    }
     img {
       border: 1px solid $border;
       border-radius: 100%;
@@ -94,6 +105,10 @@ export default defineComponent({
   &__social {
     margin: 10px 0;
     min-width: 200px;
+    @include mobile {
+      min-width: 10px;
+      background: transparent;
+    }
     @include flex-config();
     background: #f9f9f9;
     border-radius: 8px;
@@ -105,22 +120,37 @@ export default defineComponent({
         height: 25px;
         width: 25px;
       }
+      @include mobile {
+        display: none;
+      }
     }
     &__info {
       flex-grow: 1;
       @include flex-config($flex-direction: column);
+      @include mobile {
+        align-items: center;
+      }
       &__handle {
         font-size: 14px;
         font-weight: 600;
+        @include mobile {
+          font-size: 11px;
+        }
       }
       &__category {
         font-size: 13px;
         font-weight: 200;
         text-transform: capitalize;
+        @include mobile {
+          font-size: 11px;
+        }
       }
       &__followers {
         font-size: 12px;
         font-weight: 200;
+        @include mobile {
+          font-size: 10px;
+        }
       }
     }
     &__link {
@@ -128,6 +158,9 @@ export default defineComponent({
       @include flex-config($justify-content: center, $align-items: center);
       a {
         text-decoration: none;
+      }
+      @include mobile {
+        display: none;
       }
     }
   }
