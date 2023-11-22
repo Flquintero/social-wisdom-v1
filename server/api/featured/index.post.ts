@@ -4,16 +4,12 @@ const client = algoliasearch(
   process.env.NUXT_ENV_ALGOLIA_API_KEY as string
 );
 const index = client.initIndex(
-  process.env.NUXT_ENV_ALGOLIA_INDEX_SPANISH as string
+  process.env.NUXT_ENV_ALGOLIA_INDEX_FEATURED as string
 );
 
-export default defineEventHandler(async (event) => {
-  const { subCategory } = await readBody(event);
+export default defineEventHandler(async () => {
   try {
-    // await index.setSettings({
-    //   searchableAttributes: ["secondary_category"],
-    // });
-    return index.search(subCategory);
+    return index.search("");
   } catch (error: any) {
     throw createError({
       statusMessage: error,

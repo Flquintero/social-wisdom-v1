@@ -4,13 +4,13 @@
       <BaseLinkLogo v-if="linkLogo" v-bind="{ to }" />
       <BaseLogo v-else />
     </div>
-    <div v-if="actions" class="header-layout__menu">
+    <!-- <div v-if="actions" class="header-layout__menu">
       <BaseButton
         @click="$router.push('/')"
         :button-text="`😊 New Question`"
         variant="primary"
       />
-    </div>
+    </div> -->
   </div>
 </template>
 
