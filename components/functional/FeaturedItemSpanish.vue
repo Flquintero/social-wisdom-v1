@@ -79,6 +79,7 @@ export default defineComponent({
     @include mobile {
       max-width: 130px;
       max-height: 130px;
+      //testing
     }
     img {
       border: 1px solid $border;
