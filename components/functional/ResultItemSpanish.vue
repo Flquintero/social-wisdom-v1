@@ -72,16 +72,18 @@ export default defineComponent({
   max-height: 500px;
   &__content {
     padding: 10px;
-    height: calc(100% - 170px);
+    height: calc(100% - 150px);
   }
   &__image {
     @include flex-config($justify-content: center, $align-items: center);
-    padding: 10px 20px;
-    height: 170px;
-    max-height: 170px;
+    padding: 20px;
+    height: 150px;
+    width: 100%;
+    height: 150px;
     img {
       border: 1px solid $border;
       border-radius: 100%;
+      height: 100%;
     }
   }
   &__title {
@@ -139,7 +141,7 @@ export default defineComponent({
     height: 120px;
     max-height: 120px;
     overflow-y: hidden;
-    margin-bottom: 15px;
+    margin-bottom: 35px;
     word-break: break-word;
     div {
       // margin: 20px 0;
