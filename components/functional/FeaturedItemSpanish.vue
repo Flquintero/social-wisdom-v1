@@ -77,8 +77,8 @@ export default defineComponent({
     max-width: 150px;
     max-height: 150px;
     @include mobile {
-      max-width: 100px;
-      max-height: 100px;
+      max-width: 130px;
+      max-height: 130px;
     }
     img {
       border: 1px solid $border;
@@ -105,10 +105,6 @@ export default defineComponent({
   &__social {
     margin: 10px 0;
     min-width: 200px;
-    @include mobile {
-      min-width: 10px;
-      background: transparent;
-    }
     @include flex-config();
     background: #f9f9f9;
     border-radius: 8px;
@@ -119,9 +115,6 @@ export default defineComponent({
       img {
         height: 25px;
         width: 25px;
-      }
-      @include mobile {
-        display: none;
       }
     }
     &__info {
@@ -158,9 +151,6 @@ export default defineComponent({
       @include flex-config($justify-content: center, $align-items: center);
       a {
         text-decoration: none;
-      }
-      @include mobile {
-        display: none;
       }
     }
   }
