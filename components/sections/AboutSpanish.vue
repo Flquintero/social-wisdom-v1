@@ -29,12 +29,12 @@
         se esfuerza por garantizar una conexión fluida entre los usuarios y los
         expertos de todo el mundo.
       </p>
-      <h3 class="about-content__brand-values__subtitle">Community</h3>
-      <p class="about-content__brand-values__description">
-        We are building a community of continuous learning, where sharing,
-        interacting, and evolving are part of the journey.
-      </p>
       <h3 class="about-content__brand-values__subtitle">Comunidad</h3>
+      <p class="about-content__brand-values__description">
+        Estamos construyendo una comunidad de aprendizaje continuo, donde
+        compartir, interactuar y evolucionar son parte de la aventura.
+      </p>
+      <h3 class="about-content__brand-values__subtitle">Transparencia</h3>
       <p class="about-content__brand-values__description">
         Mantenemos nuestra promesa de mantener canales abiertos, precios justos
         y una comunicación clara para todos los participantes de nuestra
@@ -42,7 +42,7 @@
       </p>
     </div>
     <div class="about-content__contact">
-      <h3>Si desea ponerse en contacto: <b>hello@socialwisdom.co</b></h3>
+      <h3>Si deseas ponerte en contacto: <b>hello@socialwisdom.co</b></h3>
     </div>
   </div>
 </template>
