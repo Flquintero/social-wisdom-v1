@@ -252,7 +252,7 @@ export default defineComponent({
       font-size: 13px;
     }
     &__button {
-      border: 1px solid #d4ebff;
+      border: 1px solid $primary;
       border-radius: 40px;
       width: 40px;
       height: 40px;
@@ -272,7 +272,7 @@ export default defineComponent({
       &__digit {
         min-width: 30px;
         height: 30px;
-        border: 1px solid #d4ebff;
+        border: 1px solid $primary;
         border-radius: 40px;
         margin-right: 20px;
         @include flex-config($justify-content: center, $align-items: center);

@@ -1,6 +1,7 @@
 <template>
   <div>
     <SectionHeroSpanish />
+    <SectionQuestionSpanish />
     <SectionFeaturedSpanish />
   </div>
 </template>

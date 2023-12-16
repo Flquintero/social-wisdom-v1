@@ -37,7 +37,7 @@ export default defineComponent({
   height: 70px;
   &__logo {
     padding: 10px;
-    width: 150px;
+    width: 220px;
     display: flex;
   }
   &__menu {

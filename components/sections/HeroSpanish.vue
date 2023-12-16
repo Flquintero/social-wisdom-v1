@@ -2,16 +2,19 @@
   <div class="hero-content">
     <div class="hero-content__text">
       <div class="hero-content__text__content">
-        <h1>Contacta a expertos sobre un tema en especifico</h1>
+        <h1>
+          Resuelve tus dudas con cuenta de redes sociales expertas en un tema ✨
+        </h1>
         <h3>
-          Tus cuentas de redes sociales favoritas o recomendadas por gente como
-          tu que te responden tus preguntas
+          Tus cuentas favoritas o recomendadas por gente como tu que te
+          responden tus preguntas
         </h3>
       </div>
     </div>
     <div class="hero-content__question">
       <div class="hero-content__question__content">
-        <h2>¿Tienes una pregunta?</h2>
+        <img src="/img/test-hero-logo.png" alt="Discover Social Wisdom" />
+        <!-- <h2>¿Tienes una pregunta?</h2>
         <BaseTextarea
           @input="setForm($event)"
           placeholder="Escribe tu Pregunta..."
@@ -21,7 +24,7 @@
           :loading="false"
           variant="primary"
           :disabled="false"
-        />
+        /> -->
       </div>
     </div>
   </div>
@@ -81,6 +84,14 @@ export default defineComponent({
       }
       @include mobile {
         padding: 20px;
+      }
+      img {
+        height: 479px;
+        width: 564px;
+        @include mobile {
+          height: 300px;
+          width: 353px;
+        }
       }
     }
   }
