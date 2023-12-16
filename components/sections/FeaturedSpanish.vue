@@ -24,7 +24,7 @@
         <div class="home-content__actions">
           <BaseButton
             type="button"
-            @click.prevent="$router.push({ name: 'project' })"
+            @click.prevent="$router.push({ name: 'experts' })"
             :button-text="`🔎 Ver Más`"
             variant="primary"
           />
@@ -173,7 +173,7 @@ export default defineComponent({
     }
   }
   &__header {
-    margin: 50px 20px 10px;
+    margin: 10px 20px 10px;
     @include flex-config(
       $flex-direction: column,
       $justify-content: center,

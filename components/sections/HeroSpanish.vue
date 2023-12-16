@@ -14,17 +14,6 @@
     <div class="hero-content__question">
       <div class="hero-content__question__content">
         <img src="/img/test-hero-logo.png" alt="Discover Social Wisdom" />
-        <!-- <h2>¿Tienes una pregunta?</h2>
-        <BaseTextarea
-          @input="setForm($event)"
-          placeholder="Escribe tu Pregunta..."
-        />
-        <BaseButton
-          :button-text="`🔎 Buscar Expertos`"
-          :loading="false"
-          variant="primary"
-          :disabled="false"
-        /> -->
       </div>
     </div>
   </div>
@@ -86,8 +75,8 @@ export default defineComponent({
         padding: 20px;
       }
       img {
-        height: 479px;
-        width: 564px;
+        height: 436px;
+        width: 513px;
         @include mobile {
           height: 300px;
           width: 353px;

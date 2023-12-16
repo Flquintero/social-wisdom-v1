@@ -9,7 +9,7 @@
           >
         </div>
         <div class="home-content__banner__link">
-          &nbsp;&nbsp;<NuxtLink to="/project">Check out the list here</NuxtLink>
+          &nbsp;&nbsp;<NuxtLink to="/experts">Check out the list here</NuxtLink>
         </div>
       </div>
       <div class="home-content__header">

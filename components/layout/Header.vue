@@ -4,13 +4,14 @@
       <BaseLinkLogo v-if="linkLogo" v-bind="{ to }" />
       <BaseLogo v-else />
     </div>
-    <!-- <div v-if="actions" class="header-layout__menu">
-      <BaseButton
-        @click="$router.push('/')"
-        :button-text="`😊 New Question`"
-        variant="primary"
-      />
-    </div> -->
+    <div class="header-layout__actions">
+      <div class="header-layout__link">
+        <NuxtLink to="/experts">Lista de expertos</NuxtLink>
+      </div>
+      <div class="header-layout__link">
+        <NuxtLink to="/about">Nosotros</NuxtLink>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -31,8 +32,8 @@ export default defineComponent({
   top: 0;
   left: 0;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 70px;
   &__logo {
@@ -47,6 +48,13 @@ export default defineComponent({
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  &__actions {
+    display: flex;
+    margin: 0 50px;
+  }
+  &__link {
+    margin: 0 20px;
   }
 }
 </style>
