@@ -179,6 +179,9 @@ export default defineComponent({
       $justify-content: center,
       $align-items: center
     );
+    @include mobile {
+      margin: 20px 20px 10px;
+    }
     img {
       width: 350px;
       height: 177px;

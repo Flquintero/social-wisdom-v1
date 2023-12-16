@@ -22,6 +22,10 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   margin: 40px 0;
+  padding: 20px;
+  @include mobile {
+    margin: 40px 0 0;
+  }
   &__content {
     display: flex;
     flex-direction: column;
@@ -29,12 +33,13 @@ export default defineComponent({
     align-items: center;
     h3 {
       margin-top: 10px;
+      text-align: center;
     }
     .question-box-content__question__content {
       width: 600px;
       margin: 20px 0;
       @include mobile {
-        width: 200px;
+        width: 350px;
       }
     }
   }
