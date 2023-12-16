@@ -91,7 +91,10 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: [["@nuxtjs/google-fonts", { families: { Nobel: true } }]],
+  modules: [
+    "nuxt-viewport",
+    ["@nuxtjs/google-fonts", { families: { Nobel: true } }],
+  ],
   components: [
     // ~/components/special-components/Btn.vue => <SpecialBtn />
     { path: "~/components/elements", prefix: "Base" },

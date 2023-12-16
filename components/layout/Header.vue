@@ -4,7 +4,10 @@
       <BaseLinkLogo v-if="linkLogo" v-bind="{ to }" />
       <BaseLogo v-else />
     </div>
-    <div class="header-layout__actions">
+    <div v-if="$viewport.isLessThan('tablet')" class="header-layout__actions">
+      🍔
+    </div>
+    <div v-else class="header-layout__actions">
       <div class="header-layout__link">
         <NuxtLink to="/experts">Lista de expertos</NuxtLink>
       </div>
