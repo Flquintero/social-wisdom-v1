@@ -54,6 +54,9 @@ export default defineComponent({
       padding: 30px;
       h1 {
         font-size: 40px;
+        @include mobile {
+          font-size: 30px;
+        }
       }
       h3 {
         margin-top: 10px;
@@ -75,6 +78,7 @@ export default defineComponent({
       }
       @include mobile {
         padding: 20px;
+        margin-bottom: 20px;
       }
     }
   }
