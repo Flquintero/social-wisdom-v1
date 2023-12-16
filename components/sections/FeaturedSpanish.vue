@@ -2,11 +2,9 @@
   <div class="home-content__wrapper">
     <div class="home-content">
       <div class="home-content__header">
-        <!-- <div class="home-content__header__logo">
-          <BaseLogo />
-        </div> -->
         <div class="home-content__header__title">
           <h1>Recibe respuestas a tus preguntas en video</h1>
+          <h3>Expertos de redes sociales esperando para ayudar</h3>
         </div>
       </div>
       <template v-if="isLoading">
@@ -32,14 +30,14 @@
           />
         </div>
       </div>
-      <div class="home-content__info-helpers">
-        <div class="home-content__how-to">
-          <div class="home-content__how-to__title">
-            <span>Como Funciona</span>
-          </div>
-          <div class="home-content__how-to__button">
-            <div><span>👇</span></div>
-          </div>
+    </div>
+    <div class="home-content__info-helpers">
+      <div class="home-content__how-to">
+        <div class="home-content__how-to__title">
+          <span>Como Funciona</span>
+        </div>
+        <div class="home-content__how-to__button">
+          <div><span>👇</span></div>
         </div>
       </div>
     </div>
@@ -140,8 +138,6 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .home-content {
-  height: 100vh;
-  padding-top: 130px;
   @include mobile() {
     height: 100%;
   }
@@ -177,7 +173,7 @@ export default defineComponent({
     }
   }
   &__header {
-    padding: 10px 20px;
+    margin: 50px 20px 10px;
     @include flex-config(
       $flex-direction: column,
       $justify-content: center,
@@ -191,7 +187,9 @@ export default defineComponent({
       text-align: center;
       h1 {
         font-size: 32px;
-        margin-top: -35px;
+      }
+      h3 {
+        margin-top: 10px;
       }
     }
   }
@@ -220,6 +218,7 @@ export default defineComponent({
   &__info-helpers {
     @include flex-config($flex-direction: column, $justify-content: flex-end);
     height: 100%;
+    margin-top: 50px;
     @include mobile() {
       justify-content: flex-start;
       margin-top: 30px;
@@ -246,7 +245,7 @@ export default defineComponent({
     }
   }
   &__how-to {
-    @include center-with-margin($max-width: 250px, $top: 15px);
+    @include center-with-margin($max-width: 250px);
     text-align: center;
     font-weight: 700;
     cursor: pointer;
@@ -263,7 +262,7 @@ export default defineComponent({
     }
   }
   &__steps {
-    @include center-with-margin($max-width: 600px, $top: 50px, $bottom: 50px);
+    @include center-with-margin($max-width: 600px, $top: 20px, $bottom: 50px);
     @include mobile() {
       margin: 0 auto;
     }
