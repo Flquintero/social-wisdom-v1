@@ -221,7 +221,6 @@ export default defineComponent({
     margin-top: 50px;
     @include mobile() {
       justify-content: flex-start;
-      margin-top: 30px;
       height: auto;
     }
   }

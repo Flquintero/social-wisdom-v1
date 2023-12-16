@@ -36,8 +36,11 @@ export default defineComponent({
 <style lang="scss" scoped>
 .hero-content {
   margin-top: 80px;
-  height: 65vh;
+  height: 55vh;
   @include flex-config();
+  @include mobile {
+    height: 65vh;
+  }
   &__text,
   &__question {
     height: 100%;
@@ -78,7 +81,6 @@ export default defineComponent({
       }
       @include mobile {
         padding: 20px;
-        margin-bottom: 20px;
       }
     }
   }
