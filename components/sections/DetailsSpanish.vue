@@ -30,7 +30,7 @@
           </h5>
         </div>
       </div>
-      <div v-if="!hasQuery" class="details-content__details">
+      <div v-if="!hasQuestion" class="details-content__details">
         <h3>Introdúce tu pregunta a continuación:</h3>
         <div class="details-content__details__form">
           <BaseInput
@@ -106,6 +106,9 @@ export default defineComponent({
     },
     hasQuery(): boolean {
       return !!(this.$route.query.q as string);
+    },
+    hasQuestion(): boolean {
+      return !!this.currentQuestion;
     },
   },
   mounted() {

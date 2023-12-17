@@ -48,7 +48,11 @@ export default defineComponent({
   },
   created() {
     this.setCurrentMainCategory(this.mainCategories[0]);
-    this.setCurrentSubCategory(this.subCategories[0]);
+    let chosenSubcategory = this.subCategories[0];
+    if (this.$route.query.topic) {
+      chosenSubcategory = JSON.parse(this.$route.query.topic as string);
+    }
+    this.setCurrentSubCategory(chosenSubcategory);
   },
   methods: {
     setCurrentMainCategory(category: any) {
@@ -79,7 +83,7 @@ export default defineComponent({
       });
       this.$router.push({
         name: "details",
-        query: { account: item.full_name },
+        query: { q: this.$route.query.q, account: item.full_name },
       });
     },
   },

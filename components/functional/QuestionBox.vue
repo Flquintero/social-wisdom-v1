@@ -2,16 +2,26 @@
   <div class="question-box-content">
     <div class="question-box-content__question">
       <div class="question-box-content__question__content">
-        <slot name="extra-fields" />
+        <DropdownMenuIndex
+          @option-selected="setTopic($event)"
+          v-bind="{
+            placeholder: 'Escoje un tema',
+            chosenLabel: 'Tema',
+            chosenOption: chosenTopic,
+            options: subCategories,
+          }"
+        />
         <BaseTextarea
-          @input="setForm($event)"
-          placeholder="Escribe tu pregunta..."
+          @input="setSearchValue($event)"
+          v-bind="{
+            placeholder: 'Escribe tu pregunta...',
+          }"
         />
         <BaseButton
           :button-text="`🔎 Ver Expertos`"
-          :loading="false"
           variant="primary"
-          :disabled="false"
+          :disabled="!searchValue && !chosenTopic"
+          @click="submitSearch"
         />
       </div>
     </div>
@@ -19,9 +29,44 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
+import { subCategories } from "@/data/subCategories";
+import keyword_extractor from "keyword-extractor";
 
 export default defineComponent({
   name: "QuestionBox",
+  data() {
+    return {
+      searchValue: null as any,
+      searchKeywords: null as any,
+      chosenTopic: null,
+      subCategories,
+    };
+  },
+  methods: {
+    setSearchValue(searchValue: any) {
+      this.searchValue = searchValue.target.value;
+    },
+    setTopic(topic: any) {
+      this.chosenTopic = topic;
+    },
+    submitSearch() {
+      const searchKeywordsRaw = keyword_extractor.extract(this.searchValue, {
+        language: "spanish",
+        remove_digits: true,
+        return_changed_case: true,
+        remove_duplicates: false,
+      });
+      this.searchKeywords = JSON.parse(JSON.stringify(searchKeywordsRaw));
+      this.$router.push({
+        name: "experts",
+        query: {
+          q: this.searchKeywords.join(),
+          topic: JSON.stringify(this.chosenTopic),
+        },
+      });
+      localStorage.setItem("CurrentQuestion", this.searchValue);
+    },
+  },
 });
 </script>
 <style lang="scss" scoped>
