@@ -37,7 +37,11 @@
           <span>Como Funciona</span>
         </div>
         <div class="home-content__how-to__button">
-          <div><span>👇</span></div>
+          <div>
+            <ClientOnly>
+              <font-awesome-icon icon="fa-solid fa-arrow-down" />
+            </ClientOnly>
+          </div>
         </div>
       </div>
     </div>

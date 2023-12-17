@@ -32,6 +32,7 @@
 <script lang="ts">
 import mixpanel from "mixpanel-browser";
 import { defineComponent } from "vue";
+import { subCategories } from "@/data/subCategories";
 
 export default defineComponent({
   name: "DatabaseFilter",
@@ -42,21 +43,7 @@ export default defineComponent({
       currentMainCategory: null as null | string,
       currentSubCategory: null as null | string,
       mainCategories: [{ display: "Crianza", value: "parenting" }], // abstract it
-      subCategories: [
-        { display: "Sueño", value: "sleep" },
-        { display: "Lactancia", value: "breastfeeding" },
-        { display: "Nutrición", value: "nutrition" },
-        { display: "Embarazo", value: "pregnancy" },
-        { display: "Psicología", value: "psicology" },
-        // { display: "Sueño", value: "sleep" },
-        // { display: "Entretenimiento", value: "entertainment" },
-        { display: "Maternidad", value: "motherhood" },
-        // { display: "Paternidad", value: "parenthood" },
-        // { display: "Pediatría", value: "pediatric" },
-        { display: "Fisioterapia", value: "physiotherapy" },
-        // { display: "Habla", value: "speech" },
-        // { display: "Bienestar", value: "wellness" },
-      ],
+      subCategories: subCategories,
     };
   },
   created() {

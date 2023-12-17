@@ -6,14 +6,38 @@
         Escoje un tema y escribe tu pregunta, te ensenaremos las cuentas en
         redes sociales recomendas para ayudarte
       </h3>
-      <FunctionalQuestionBox />
+      <FunctionalQuestionBox>
+        <template #extra-fields>
+          <DropdownMenuIndex
+            @option-selected="setTopic($event)"
+            v-bind="{
+              placeholder: 'Escoje un tema',
+              chosenLabel: 'Tema',
+              chosenOption: chosenTopic,
+              options: subCategories,
+            }"
+          />
+        </template>
+      </FunctionalQuestionBox>
     </div>
   </div>
 </template>
 <script lang="ts">
+import { subCategories } from "@/data/subCategories";
 definePageMeta({ layout: "results" });
 export default defineComponent({
   name: "QuestionSpanish",
+  data() {
+    return {
+      chosenTopic: null,
+      subCategories,
+    };
+  },
+  methods: {
+    setTopic(topic: any) {
+      this.chosenTopic = topic;
+    },
+  },
 });
 </script>
 <style lang="scss">
@@ -32,8 +56,12 @@ export default defineComponent({
     justify-content: center;
     align-items: center;
     h3 {
-      margin-top: 10px;
+      margin: 10px 0 20px;
       text-align: center;
+    }
+    .dropdown {
+      width: 100%;
+      @include box-shadow;
     }
     .question-box-content__question__content {
       width: 600px;

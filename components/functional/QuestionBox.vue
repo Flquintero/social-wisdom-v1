@@ -2,6 +2,7 @@
   <div class="question-box-content">
     <div class="question-box-content__question">
       <div class="question-box-content__question__content">
+        <slot name="extra-fields" />
         <BaseTextarea
           @input="setForm($event)"
           placeholder="Escribe tu pregunta..."

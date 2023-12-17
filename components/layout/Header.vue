@@ -5,14 +5,25 @@
       <BaseLogo v-else />
     </div>
     <div v-if="$viewport.isLessThan('tablet')" class="header-layout__actions">
-      🍔
+      <DropdownMenuIndex
+        @option-selected="goToPage($event)"
+        v-bind="{
+          options: [
+            { display: 'Lista de Expertos', value: 'experts' },
+            { display: 'Sobre Nosotros', value: 'about' },
+          ],
+          useIcon: true,
+          iconName: 'fa-solid fa-bars',
+          leftListPosition: '-150px',
+        }"
+      />
     </div>
     <div v-else class="header-layout__actions">
       <div class="header-layout__link">
-        <NuxtLink to="/experts">Lista de expertos</NuxtLink>
+        <NuxtLink to="/experts">Lista de Expertos</NuxtLink>
       </div>
       <div class="header-layout__link">
-        <NuxtLink to="/about">Nosotros</NuxtLink>
+        <NuxtLink to="/about">Sobre Nosotros</NuxtLink>
       </div>
     </div>
   </div>
@@ -27,9 +38,14 @@ export default defineComponent({
     linkLogo: { type: Boolean, default: false },
     to: String,
   },
+  methods: {
+    goToPage(pageObject: any) {
+      this.$router.push({ name: pageObject.value });
+    },
+  },
 });
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .header-layout {
   position: absolute;
   top: 0;
@@ -55,6 +71,12 @@ export default defineComponent({
   &__actions {
     display: flex;
     margin: 0 50px;
+    @include mobile {
+      margin: 0 10px;
+      .dropdown-trigger {
+        border: none;
+      }
+    }
   }
   &__link {
     margin: 0 20px;
