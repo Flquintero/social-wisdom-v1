@@ -1,7 +1,11 @@
 <template>
   <div class="pill" :class="{ 'pill--active': isActive }">
     <span>{{ textContent }}</span>
-    <span v-if="isActive">👇</span>
+    <span v-if="isActive">
+      <ClientOnly>
+        <font-awesome-icon icon="fa-sharp fa-solid fa-arrow-down" />
+      </ClientOnly>
+    </span>
   </div>
 </template>
 

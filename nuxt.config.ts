@@ -91,11 +91,15 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: [["@nuxtjs/google-fonts", { families: { Nobel: true } }]],
+  modules: [
+    "nuxt-viewport",
+    ["@nuxtjs/google-fonts", { families: { Nobel: true } }],
+  ],
   components: [
     // ~/components/special-components/Btn.vue => <SpecialBtn />
     { path: "~/components/elements", prefix: "Base" },
     { path: "~/components/functional", prefix: "Functional" },
+    { path: "~/components/functional/dropdown-menu", prefix: "Dropdown" },
     { path: "~/components/sections", prefix: "Section" },
     { path: "~/components/layout", prefix: "Layout" },
 
@@ -116,4 +120,5 @@ export default defineNuxtConfig({
       MIXPANEL_PROJECT_TOKEN: process.env.NUXT_ENV_MIXPANEL_PROJECT_TOKEN,
     },
   },
+  css: ["@fortawesome/fontawesome-svg-core/styles.css"],
 });

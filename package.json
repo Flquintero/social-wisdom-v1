@@ -13,9 +13,12 @@
     "@nuxt/devtools": "latest",
     "@nuxtjs/google-fonts": "^3.0.2",
     "@types/mixpanel-browser": "^2.47.3",
-    "nuxt": "^3.7.3"
+    "nuxt": "^3.7.3",
+    "nuxt-viewport": "^2.0.6"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/vue-fontawesome": "^3.0.5",
     "@sendgrid/mail": "^7.7.0",
     "algoliasearch": "^4.20.0",
     "keyword-extractor": "^0.0.27",
