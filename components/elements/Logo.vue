@@ -1,5 +1,5 @@
 <template>
-  <img alt="Discover Social Wisdom" />
+  <img src="/img/swlogo-long-solid.png" alt="Discover Social Wisdom" />
 </template>
 
 <script lang="ts">
