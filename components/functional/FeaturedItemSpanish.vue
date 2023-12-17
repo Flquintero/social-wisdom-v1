@@ -109,6 +109,7 @@ export default defineComponent({
     background: #f9f9f9;
     border-radius: 8px;
     padding: 10px 0;
+    @include box-shadow;
     @include mobile() {
       min-width: 120px;
       padding: 10px 10px 10px 0;

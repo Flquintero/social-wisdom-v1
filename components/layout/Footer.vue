@@ -6,7 +6,7 @@
     <div class="footer-layout__wrapper">
       <div class="footer-layout__content__first-row">
         <div class="footer-layout__project">
-          <NuxtLink to="/project">Lista de expertos</NuxtLink>
+          <NuxtLink to="/experts">Lista de expertos</NuxtLink>
         </div>
         <!-- <div class="footer-layout__separator">
           <h3>&nbsp;<span></span>&nbsp;</h3>

@@ -4,13 +4,28 @@
       <BaseLinkLogo v-if="linkLogo" v-bind="{ to }" />
       <BaseLogo v-else />
     </div>
-    <!-- <div v-if="actions" class="header-layout__menu">
-      <BaseButton
-        @click="$router.push('/')"
-        :button-text="`😊 New Question`"
-        variant="primary"
+    <div v-if="$viewport.isLessThan('tablet')" class="header-layout__actions">
+      <DropdownMenuIndex
+        @option-selected="goToPage($event)"
+        v-bind="{
+          options: [
+            { display: 'Lista de Expertos', value: 'experts' },
+            { display: 'Sobre Nosotros', value: 'about' },
+          ],
+          useIcon: true,
+          iconName: 'fa-solid fa-bars',
+          leftListPosition: '-150px',
+        }"
       />
-    </div> -->
+    </div>
+    <div v-else class="header-layout__actions">
+      <div class="header-layout__link">
+        <NuxtLink to="/experts">Lista de Expertos</NuxtLink>
+      </div>
+      <div class="header-layout__link">
+        <NuxtLink to="/about">Sobre Nosotros</NuxtLink>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -23,21 +38,26 @@ export default defineComponent({
     linkLogo: { type: Boolean, default: false },
     to: String,
   },
+  methods: {
+    goToPage(pageObject: any) {
+      this.$router.push({ name: pageObject.value });
+    },
+  },
 });
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .header-layout {
   position: absolute;
   top: 0;
   left: 0;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 70px;
   &__logo {
     padding: 10px;
-    width: 150px;
+    width: 220px;
     display: flex;
   }
   &__menu {
@@ -47,6 +67,19 @@ export default defineComponent({
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  &__actions {
+    display: flex;
+    margin: 0 50px;
+    @include mobile {
+      margin: 0 10px;
+      .dropdown-trigger {
+        border: none;
+      }
+    }
+  }
+  &__link {
+    margin: 0 20px;
   }
 }
 </style>

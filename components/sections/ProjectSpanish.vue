@@ -1,8 +1,11 @@
 <template>
   <div class="project-content">
     <h1 class="project-content__title">
-      Recibe respuestas a tus preguntas en video
+      Cuentas de redes sociales de expertos listos para ayudar
     </h1>
+    <h3 class="project-content__subtitle">
+      Escoge un tema en especifico para ver las opciones
+    </h3>
     <SectionProjectDatabaseFilterSpanish />
   </div>
 </template>
@@ -24,6 +27,10 @@ export default defineComponent({
   width: 100%;
   &__title {
     text-align: center;
+  }
+  &__subtitle {
+    text-align: center;
+    margin-top: 10px;
   }
   &__explanation,
   &__requirement,

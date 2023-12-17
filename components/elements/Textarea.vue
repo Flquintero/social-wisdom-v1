@@ -10,6 +10,7 @@
       :disabled="isDisabled"
       class="input__field"
       :class="{ 'input__field--error': error }"
+      rows="8"
     />
   </div>
 </template>
@@ -18,7 +19,7 @@ import { defineComponent } from "vue";
 import type { PropType } from "vue";
 
 export default defineComponent({
-  name: "Input",
+  name: "Textarea",
   props: {
     placeholder: String,
     type: [String, Number],
