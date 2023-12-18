@@ -3,7 +3,8 @@
     <div class="hero-content__text">
       <div class="hero-content__text__content">
         <h1>
-          Resuelve tus dudas con cuenta de redes sociales expertas en un tema ✨
+          Resuelve tus dudas con cuentas de redes sociales expertas en un tema
+          ✨
         </h1>
         <h3>
           Tus cuentas favoritas o recomendadas por gente como tu que te
