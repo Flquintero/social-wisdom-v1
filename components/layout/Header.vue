@@ -74,7 +74,8 @@ export default defineComponent({
     @include mobile {
       margin: 0 10px;
       .dropdown-trigger {
-        border: none;
+        border: none !important;
+        box-shadow: none !important;
       }
     }
   }

@@ -31,7 +31,7 @@ export default defineComponent({
   height: 55vh;
   @include flex-config();
   @include mobile {
-    height: 65vh;
+    height: 100vh;
   }
   &__text,
   &__question {
