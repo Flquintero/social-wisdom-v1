@@ -93,7 +93,7 @@ export default defineNuxtConfig({
   },
   modules: [
     "nuxt-viewport",
-    ["@nuxtjs/google-fonts", { families: { Nobel: true } }],
+    ["@nuxtjs/google-fonts", { families: { Raleway: true } }],
   ],
   components: [
     // ~/components/special-components/Btn.vue => <SpecialBtn />

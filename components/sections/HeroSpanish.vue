@@ -76,11 +76,11 @@ export default defineComponent({
         padding: 20px;
       }
       img {
-        height: 436px;
-        width: 513px;
+        height: 520px;
+        width: 520px;
         @include mobile {
           height: 300px;
-          width: 353px;
+          width: 300px;
         }
       }
     }

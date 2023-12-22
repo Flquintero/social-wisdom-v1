@@ -64,6 +64,7 @@ export default defineComponent({
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 30px;
   cursor: pointer;
   &__loading-icon {
     height: 100%;

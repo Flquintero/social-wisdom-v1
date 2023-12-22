@@ -2,6 +2,7 @@
   <div
     class="dropdown-trigger"
     :class="{ 'dropdown-trigger--active': showMenu }"
+    :style="{ background: triggerBackground }"
   >
     <div class="dropdown-trigger__content">
       <div v-if="!useIcon">
@@ -45,6 +46,10 @@ export default defineComponent({
     showMenu: Boolean,
     useIcon: Boolean,
     iconName: String,
+    triggerBackground: {
+      type: String,
+      default: "#ffffff",
+    },
   },
   computed: {
     renderTriggerText(): string {

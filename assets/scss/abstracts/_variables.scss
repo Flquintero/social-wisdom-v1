@@ -30,6 +30,8 @@ $burgundy: #a3166a;
 $dark-blue: #2e3458;
 $facebook-blue: #0474e7;
 $sw-blue: #147DC1;
+$sw-button-background: #ff6863;
+$view-background: #fff8f0;
 
 // Negative Color Palette
 $negative-darker: #7D0D0D;
@@ -40,7 +42,7 @@ $negative-med: #FAD6CF;
 $negative-light: #FDF2F0;
 
 // Color variables
-$primary: #36454f; //$sw-blue !default;
+$primary: #ff6863; //$sw-blue !default;
 $primary-light: $light-blue !default;
 $secondary: $burgundy  !default;
 $tertiary: $pink !default;
@@ -101,7 +103,7 @@ $font-size-subtitle: 1.7rem !default;
 $font-size-subtitle-md: 1.14rem !default;
 
 // Font family
-$font-family-site: 'Nobel', Arial, Helvetica, sans-serif !default;
+$font-family-site: 'Raleway', Arial, Helvetica, sans-serif !default;
 
 // Media query breakpoints
 $device-breakpoints: (

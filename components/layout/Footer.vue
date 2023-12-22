@@ -63,6 +63,9 @@
       display: flex;
       justify-content: center;
       text-decoration: underline;
+      a {
+        text-decoration-color: $primary !important;
+      }
     }
     &__second-row {
       display: flex;

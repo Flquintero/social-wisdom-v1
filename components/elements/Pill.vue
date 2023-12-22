@@ -22,12 +22,12 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .pill {
+  background: $white;
   cursor: pointer;
   width: 150px;
   height: 30px;
   margin: 10px;
   border-radius: 50px;
-  background-color: $view-background-color;
   text-transform: capitalize;
   display: flex;
   justify-content: center;

@@ -247,6 +247,7 @@ export default defineComponent({
       font-style: italic;
       &:hover {
         text-decoration: underline;
+        text-decoration-color: $view-background;
       }
     }
   }
@@ -260,6 +261,8 @@ export default defineComponent({
     }
     &__button {
       border: 1px solid $primary;
+      background: $primary;
+      color: $white;
       border-radius: 40px;
       width: 40px;
       height: 40px;
@@ -280,6 +283,8 @@ export default defineComponent({
         min-width: 30px;
         height: 30px;
         border: 1px solid $primary;
+        background: $primary;
+        color: $white;
         border-radius: 40px;
         margin-right: 20px;
         @include flex-config($justify-content: center, $align-items: center);
