@@ -15,6 +15,7 @@
           useIcon: true,
           iconName: 'fa-solid fa-bars',
           leftListPosition: '-150px',
+          triggerBackground: '#fff8f0',
         }"
       />
     </div>
@@ -81,6 +82,9 @@ export default defineComponent({
   }
   &__link {
     margin: 0 20px;
+    a {
+      text-decoration-color: $primary !important;
+    }
   }
 }
 </style>

@@ -8,6 +8,7 @@
         showMenu,
         useIcon,
         iconName,
+        triggerBackground,
       }"
       @click="toggleMenu"
     />
@@ -33,6 +34,7 @@ export default defineComponent({
     useIcon: Boolean,
     iconName: String,
     leftListPosition: String,
+    triggerBackground: String,
   },
   data() {
     return {

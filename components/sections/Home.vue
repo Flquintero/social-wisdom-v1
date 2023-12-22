@@ -229,6 +229,7 @@ export default defineComponent({
       font-style: italic;
       &:hover {
         text-decoration: underline;
+        text-decoration-color: $view-background;
       }
     }
   }

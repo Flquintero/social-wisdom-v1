@@ -62,6 +62,7 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .result-item {
+  background-color: $white;
   margin: 20px;
   border: 1px solid $border;
   border-radius: 8px;

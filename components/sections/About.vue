@@ -78,6 +78,7 @@ export default defineComponent({
     }
     &__subtitle {
       text-decoration: underline;
+      text-decoration-color: $view-background;
       margin: 10px 0;
     }
   }
