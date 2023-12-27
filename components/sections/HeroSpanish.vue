@@ -4,7 +4,7 @@
       <div class="hero-content__text__content">
         <h1>
           Resuelve tus dudas con cuentas de redes sociales expertas en un tema
-          ✨
+          <span>✨</span>
         </h1>
         <h3>
           Tus cuentas favoritas o recomendadas por gente como tu que te
@@ -55,9 +55,6 @@ export default defineComponent({
       h1 {
         font-size: 40px;
         @include mobile {
-          font-size: 30px;
-        }
-        @include mobile-small {
           font-size: 28px;
         }
       }
