@@ -32,7 +32,7 @@ export default defineComponent({
   height: 55vh;
   @include flex-config();
   @include mobile {
-    height: 100vh;
+    height: auto;
   }
   &__text,
   &__question {
@@ -40,18 +40,25 @@ export default defineComponent({
     width: 50%;
     @include mobile {
       width: 100%;
+      height: auto;
     }
   }
   &__text {
     @include flex-config($flex-direction: column, $justify-content: center);
     &__content {
       margin: auto;
+      @include mobile {
+        margin: 0 auto;
+      }
       max-width: 600px;
       padding: 30px;
       h1 {
         font-size: 40px;
         @include mobile {
           font-size: 30px;
+        }
+        @include mobile-small {
+          font-size: 28px;
         }
       }
       h3 {
