@@ -3,12 +3,12 @@
     <div class="hero-content__text">
       <div class="hero-content__text__content">
         <h1>
-          Resuelve tus dudas con cuentas de redes sociales expertas en un tema
+          Recibe respuestas a tus preguntas en video
           <span>✨</span>
         </h1>
         <h3>
-          Tus cuentas favoritas o recomendadas por gente como tu que te
-          responden tus preguntas
+          Resuelve tus dudas contactando a personas que demuestran su
+          conocimiento en temas específicos en redes sociales
         </h3>
       </div>
     </div>
