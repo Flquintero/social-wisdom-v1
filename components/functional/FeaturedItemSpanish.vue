@@ -107,7 +107,7 @@ export default defineComponent({
     min-width: 200px;
     @include flex-config();
     background: #f9f9f9;
-    border-radius: 8px;
+    border-radius: $border-radius;
     padding: 10px 0;
     @include box-shadow;
     @include mobile() {

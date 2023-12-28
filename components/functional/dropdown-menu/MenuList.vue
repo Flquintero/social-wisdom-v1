@@ -40,7 +40,7 @@ export default defineComponent({
   top: 70px;
   border: 1px solid $border;
   @include box-shadow;
-  border-radius: 8px;
+  border-radius: $border-radius;
   width: auto;
   min-width: 200px;
   max-height: 300px;
