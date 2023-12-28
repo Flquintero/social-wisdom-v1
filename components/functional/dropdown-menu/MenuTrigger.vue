@@ -64,14 +64,9 @@ export default defineComponent({
   padding: 20px;
   width: 100%;
   border: 1px solid $border;
-  border-radius: 8px;
+  border-radius: $border-radius;
   @include flex-config($justify-content: space-between, $align-items: center);
   cursor: pointer;
-  &--active {
-    // border-color: $primary;
-    // background: $primary;
-    // color: $white;
-  }
   &__icon {
     @include flex-config($align-items: center);
     &-chosen-label {

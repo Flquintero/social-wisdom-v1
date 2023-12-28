@@ -67,7 +67,7 @@ export default defineComponent({
   &__field {
     cursor: pointer;
     border: 1px solid $border;
-    border-radius: 8px;
+    border-radius: $border-radius;
     color: $dark-blue;
     caret-color: $dark-blue;
     width: 100%;

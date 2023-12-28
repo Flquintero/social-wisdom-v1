@@ -65,5 +65,6 @@ export default defineComponent({
 <style lang="scss" scoped>
 .dropdown {
   position: relative;
+  border-radius: $border-radius;
 }
 </style>

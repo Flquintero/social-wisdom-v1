@@ -64,7 +64,7 @@ export default defineComponent({
 .result-item {
   margin: 20px;
   border: 1px solid $border;
-  border-radius: 8px;
+  border-radius: $border-radius;
   @include box-shadow;
   min-width: 275px;
   max-width: 275px;
@@ -105,7 +105,7 @@ export default defineComponent({
     margin: 10px 0;
     @include flex-config();
     background: #f9f9f9;
-    border-radius: 8px;
+    border-radius: $border-radius;
     padding: 10px 0;
     &__icon {
       width: 40px;
