@@ -3,8 +3,8 @@
     <div class="home-content">
       <div class="home-content__header">
         <div class="home-content__header__title">
-          <h1>Recibe respuestas a tus preguntas en video</h1>
-          <h3>Expertos de redes sociales esperando para ayudar</h3>
+          <h1>Expertos con presencia social esperan tus preguntas</h1>
+          <h3>Estos perfiles han sido recomendados por personas como tu 👌</h3>
         </div>
       </div>
       <template v-if="isLoading">
@@ -49,11 +49,7 @@
       <div class="home-content__steps__item">
         <div class="home-content__steps__item__digit"><span>1</span></div>
         <div class="home-content__steps__item__text">
-          <p>
-            Escoje un experto de redes sociales. Todos los expertos han sido
-            recomendados por una persona como tu, si no son recomedados por
-            alguien no los incluimos.
-          </p>
+          <p>Escoje un experto de redes sociales.</p>
         </div>
       </div>
       <div class="home-content__steps__item">

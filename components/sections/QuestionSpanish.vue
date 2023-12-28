@@ -3,7 +3,7 @@
     <div class="question-section__content">
       <h1>¿Tienes una pregunta?</h1>
       <h3>
-        Escoje un tema y escribe tu pregunta, te ensenaremos las cuentas en
+        Escoje un tema y escribe tu pregunta. Te enseñaremos las cuentas en
         redes sociales recomendas para ayudarte
       </h3>
       <FunctionalQuestionBox />
