@@ -4,7 +4,7 @@
       <h1>¿Tienes una pregunta?</h1>
       <h3>
         Escoje un tema y escribe tu pregunta. Te enseñaremos las cuentas en
-        redes sociales recomendas para ayudarte
+        redes sociales recomendadas para ayudarte
       </h3>
       <FunctionalQuestionBox />
     </div>

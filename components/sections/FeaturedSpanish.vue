@@ -4,7 +4,7 @@
       <div class="home-content__header">
         <div class="home-content__header__title">
           <h1>Expertos con presencia social esperan tus preguntas</h1>
-          <h3>Estos perfiles han sido recomendados por personas como tu 👌</h3>
+          <h3>Estos perfiles han sido recomendados por personas como tú 👌</h3>
         </div>
       </div>
       <template v-if="isLoading">
