@@ -4,7 +4,7 @@
     <h1 class="confirmation-content__title">Muchisimas Gracias!</h1>
     <h3 class="confirmation-content__subtitle">
       Nos pondremos manos a la obra para obtener esa respuesta para ti de
-      {{ currentExpert }}!
+      {{ currentExpertName }}!
     </h3>
   </div>
 </template>
@@ -14,7 +14,7 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "SuccessSpanish",
   computed: {
-    currentExpert(): string {
+    currentExpertName() {
       return this.$route.query.account as string;
     },
   },

@@ -7,7 +7,7 @@
 <style lang="scss" scoped>
 .results-layout {
   background: $view-background;
-  padding-top: 90px;
+  padding-top: 70px;
   height: 100%;
   width: 100%;
   min-height: 100vh;

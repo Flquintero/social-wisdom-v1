@@ -14,10 +14,10 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ProjectSpanish",
-  computed: {
-    currentExpert(): string {
-      return this.$route.query.account as string;
-    },
+  mounted() {
+    if (localStorage.getItem("Expert")) {
+      localStorage.removeItem("Expert");
+    }
   },
 });
 </script>
