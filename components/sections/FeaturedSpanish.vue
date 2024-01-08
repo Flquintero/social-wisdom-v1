@@ -116,7 +116,7 @@ export default defineComponent({
       });
       this.$router.push({
         name: "details",
-        query: { account: item.full_name },
+        query: { account: item.objectID },
       });
     },
     submitSearch() {

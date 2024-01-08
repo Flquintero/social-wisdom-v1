@@ -1,39 +1,21 @@
 <template>
   <div class="details-content">
     <div class="details-content__header">
-      <!-- <h1>We will work on your request! ❤️</h1> -->
-      <h3>{{ currentExpert }} no está en la plataforma aún.</h3>
-      <h3>¡Pero con tu ayuda podemos incluirlos y así ayudar a otros! ❤️</h3>
+      <ClientOnly>
+        <template v-if="currentExpert">
+          <h1>Hazle una pregunta a {{ currentExpert.full_name }}</h1>
+          <FunctionalFeaturedItemSpanish
+            :item="currentExpert"
+            :key="currentExpert.instagram_handle"
+          />
+        </template>
+      </ClientOnly>
     </div>
     <form @submit.prevent="submitRequest">
-      <div class="details-content__bid">
-        <h1 class="details-content__bid__title">
-          Creemos que si ofreces pagar por la respuesta, podemos lograr que te
-          envíen un video con ella.
-        </h1>
-        <div class="details-content__bid__form">
-          <h3>¿Cuánto quisieras pagar?</h3>
-          <div class="details-content__bid__form__input">
-            💲&nbsp;&nbsp;<BaseInput
-              @input="setForm($event, 'amount')"
-              v-bind="{
-                placeholder: 'Cantidad...',
-                type: 'number',
-              }"
-            />
-          </div>
-          <h5
-            v-if="formData.amount && formData.amount < 5"
-            class="details-content__bid__form__error"
-          >
-            😢 Cantidad debe ser por lo menos $5
-          </h5>
-        </div>
-      </div>
       <div v-if="!hasQuestion" class="details-content__details">
         <h3>Introdúce tu pregunta a continuación:</h3>
         <div class="details-content__details__form">
-          <BaseInput
+          <BaseTextarea
             @input="setForm($event, 'question')"
             v-bind="{ placeholder: 'Pregunta...', type: 'text' }"
           />
@@ -56,6 +38,19 @@
             @input="setForm($event, 'instagram')"
             v-bind="{ placeholder: 'Instagram Handle', type: 'text' }"
           /> -->
+        </div>
+        <div class="details-content__bid__form">
+          <h3>¿Cuánto quisieras pagar?</h3>
+          <div class="details-content__bid__form__input">
+            💲&nbsp;&nbsp;<BaseInput
+              @input="setForm($event, 'amount')"
+              v-bind="{
+                placeholder: 'Cantidad...',
+                type: 'number',
+              }"
+            />
+          </div>
+          <h5>Nosotros recomendamos un minimo de $5 (US) seria apropiado.</h5>
         </div>
       </div>
       <div class="details-content__actions">
@@ -81,6 +76,7 @@ export default defineComponent({
     return {
       searchResults: null as any,
       isSubmiting: false,
+      currentExpert: null as any | null,
       formData: {
         amount: null as number | null,
         name: null as string | null,
@@ -93,10 +89,10 @@ export default defineComponent({
   },
   computed: {
     currentQuestion() {
+      if (process.server) {
+        return "";
+      }
       return localStorage.getItem("CurrentQuestion");
-    },
-    currentExpert(): string {
-      return this.$route.query.account as string;
     },
     isFormMissingData(): boolean {
       return (
@@ -111,15 +107,19 @@ export default defineComponent({
       return !!this.currentQuestion;
     },
   },
-  mounted() {
-    if (!this.hasQuery) {
-      localStorage.removeItem("CurrentQuestion");
-    } else {
-      this.formData.question = localStorage.getItem("CurrentQuestion");
-    }
-    this.formData.expert = this.$route.query.account as string;
+  async mounted() {
+    if (process.client) await this.getCurrentExpert();
   },
   methods: {
+    async getCurrentExpert() {
+      const accountId = this.$route.query.account as string;
+      const hits = await $fetch(`/api/account`, {
+        method: "post",
+        body: { accountId },
+      });
+      this.currentExpert = hits.object;
+      this.formData.expert = this.currentExpert?.full_name;
+    },
     setForm(domEvent: any, field: string) {
       (this.formData as any)[field] = domEvent.target.value;
     },
@@ -146,7 +146,7 @@ export default defineComponent({
         await $fetch("/api/email", { method: "post", body: emailPayload });
         this.$router.push({
           name: "success",
-          query: { account: this.$route.query.account },
+          query: { account: this.currentExpert.full_name },
         });
       } catch (error) {
         console.log("Registration Error", error);
@@ -173,7 +173,8 @@ export default defineComponent({
       margin: auto;
     }
     &__form {
-      margin-top: 30px;
+      margin-top: 20px;
+      text-align: center;
 
       &__input {
         display: flex;
@@ -205,7 +206,7 @@ export default defineComponent({
     width: 100%;
     max-width: 280px;
     height: 45px;
-    margin: 10px auto;
+    margin: 20px auto;
   }
 }
 </style>

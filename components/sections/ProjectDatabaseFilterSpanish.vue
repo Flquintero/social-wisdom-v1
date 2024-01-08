@@ -83,7 +83,7 @@ export default defineComponent({
       });
       this.$router.push({
         name: "details",
-        query: { q: this.$route.query.q, account: item.full_name },
+        query: { account: item.objectID },
       });
     },
   },

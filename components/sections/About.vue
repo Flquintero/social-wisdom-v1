@@ -65,6 +65,7 @@ export default defineComponent({
   width: 100%;
   &__title {
     text-align: center;
+    color: $primary !important;
   }
   &__value,
   &__explanation {
@@ -78,7 +79,7 @@ export default defineComponent({
     }
     &__subtitle {
       text-decoration: underline;
-      text-decoration-color: $view-background;
+      text-decoration-color: $primary !important;
       margin: 10px 0;
     }
   }
