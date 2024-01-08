@@ -1,5 +1,9 @@
 <template>
-  <div @click.prevent="$emit('item-chosen', item)" class="result-item">
+  <div
+    @click.prevent="isClickable ? $emit('item-chosen', item) : null"
+    :style="{ cursor: isClickable ? 'pointer' : 'default' }"
+    class="result-item"
+  >
     <div class="result-item__image">
       <img :src="item.image" />
     </div>
@@ -39,6 +43,10 @@ export default defineComponent({
   name: "FeaturedItem",
   props: {
     item: Object as any,
+    isClickable: {
+      type: Boolean,
+      default: false,
+    },
   },
   methods: {
     handleInstagramExpertLink(instagramHandle: string) {
@@ -51,7 +59,6 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .result-item {
-  cursor: pointer;
   margin: 10px;
   min-width: 220px;
   display: flex;

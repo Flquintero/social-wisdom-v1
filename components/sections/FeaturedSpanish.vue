@@ -18,6 +18,7 @@
             v-for="item in featuredResults"
             :item="item"
             :key="item.instagram_handle"
+            is-clickable
             @item-chosen="chooseExpert($event)"
           />
         </div>
@@ -56,8 +57,8 @@
         <div class="home-content__steps__item__digit"><span>2</span></div>
         <div class="home-content__steps__item__text">
           <p>
-            Escribe la pregunta que quieres que te respondan y tus datos para
-            que te la envien.
+            Escribe la pregunta que quieres que te respondan, tus datos para que
+            te envien la respuesta y cuanto estas dispuesto a pagar.
           </p>
         </div>
       </div>
@@ -65,6 +66,12 @@
         <div class="home-content__steps__item__digit"><span>3</span></div>
         <div class="home-content__steps__item__text">
           <p>Recibe un video con tu respuesta.</p>
+        </div>
+      </div>
+      <div class="home-content__steps__item">
+        <div class="home-content__steps__item__digit"><span>4</span></div>
+        <div class="home-content__steps__item__text">
+          <p>Efectua el pago al experto.</p>
         </div>
       </div>
     </div>
