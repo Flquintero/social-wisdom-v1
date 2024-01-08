@@ -3,7 +3,9 @@ const client = algoliasearch(
   process.env.NUXT_ENV_ALGOLIA_ACCOUNT_ID as string,
   process.env.NUXT_ENV_ALGOLIA_API_KEY as string
 );
-const index = client.initIndex(process.env.NUXT_ENV_ALGOLIA_INDEX as string);
+const index = client.initIndex(
+  process.env.NUXT_ENV_ALGOLIA_INDEX_SPANISH as string
+);
 
 export default defineEventHandler(async (event) => {
   const { accountId } = await readBody(event);

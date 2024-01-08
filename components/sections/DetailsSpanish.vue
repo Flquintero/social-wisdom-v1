@@ -6,13 +6,13 @@
           <h1>Hazle una pregunta a {{ currentExpert.full_name }}</h1>
           <FunctionalFeaturedItemSpanish
             :item="currentExpert"
-            :key="currentExpert.instagram_handle"
+            :key="currentExpert.objectID"
           />
         </template>
       </ClientOnly>
     </div>
     <form @submit.prevent="submitRequest">
-      <div v-if="!hasQuestion" class="details-content__details">
+      <div class="details-content__details">
         <h3>Introdúce tu pregunta a continuación:</h3>
         <div class="details-content__details__form">
           <BaseTextarea
