@@ -14,7 +14,7 @@
     </div>
     <div class="hero-content__question">
       <div class="hero-content__question__content">
-        <img src="/img/test-hero-logo.png" alt="Discover Social Wisdom" />
+        <img src="/img/sabri-hero.png" alt="Discover Social Wisdom" />
       </div>
     </div>
   </div>
@@ -28,11 +28,12 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .hero-content {
-  margin-top: 80px;
+  margin: 80px 200px;
   height: 55vh;
   @include flex-config();
   @include mobile {
     height: auto;
+    margin: 50px 20px 20px;
   }
   &__text,
   &__question {
@@ -49,6 +50,7 @@ export default defineComponent({
       margin: auto;
       @include mobile {
         margin: 0 auto;
+        padding: 30px 10px;
       }
       max-width: 600px;
       padding: 30px;
@@ -68,6 +70,8 @@ export default defineComponent({
     @include flex-config($flex-direction: column, $justify-content: center);
     &__content {
       padding: 0 30px;
+      display: flex;
+      justify-content: center;
       .input {
         margin: 20px 0;
         max-width: 600px;
@@ -78,13 +82,15 @@ export default defineComponent({
       }
       @include mobile {
         padding: 20px;
+        display: flex;
+        justify-content: center;
       }
       img {
-        height: 520px;
-        width: 520px;
+        width: 197px;
+        height: 409px;
         @include mobile {
-          height: 300px;
-          width: 300px;
+          width: 172px;
+          height: 354px;
         }
       }
     }
