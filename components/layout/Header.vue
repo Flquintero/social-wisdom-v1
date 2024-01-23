@@ -8,10 +8,7 @@
       <DropdownMenuIndex
         @option-selected="goToPage($event)"
         v-bind="{
-          options: [
-            { display: 'Lista de Expertos', value: 'experts' },
-            { display: 'Sobre Nosotros', value: 'about' },
-          ],
+          options: [{ display: 'Lista de Expertos', value: 'experts' }],
           useIcon: true,
           iconName: 'fa-solid fa-bars',
           leftListPosition: '-150px',
@@ -23,9 +20,9 @@
       <div class="header-layout__link">
         <NuxtLink to="/experts">Lista de Expertos</NuxtLink>
       </div>
-      <div class="header-layout__link">
+      <!-- <div class="header-layout__link">
         <NuxtLink to="/about">Sobre Nosotros</NuxtLink>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
