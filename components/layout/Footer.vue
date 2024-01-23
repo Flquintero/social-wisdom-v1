@@ -5,15 +5,15 @@
     </div> -->
     <div class="footer-layout__wrapper">
       <div class="footer-layout__content__first-row">
-        <div class="footer-layout__project">
+        <!-- <div class="footer-layout__project">
           <NuxtLink to="/experts">Lista de expertos</NuxtLink>
-        </div>
+        </div> -->
         <!-- <div class="footer-layout__separator">
           <h3>&nbsp;<span></span>&nbsp;</h3>
         </div> -->
-        <div class="footer-layout__about">
+        <!-- <div class="footer-layout__about">
           <NuxtLink to="/about">Nosotros</NuxtLink>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="footer-layout__wrapper">
