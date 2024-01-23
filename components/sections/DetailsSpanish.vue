@@ -40,7 +40,7 @@
           /> -->
         </div>
         <div class="details-content__bid__form">
-          <h3>¿Cuánto quisieras pagar?</h3>
+          <h3>¿Cuánto pagarías por esta respuesta?</h3>
           <div class="details-content__bid__form__input">
             💲&nbsp;&nbsp;<BaseInput
               @input="setForm($event, 'amount')"
@@ -50,7 +50,7 @@
               }"
             />
           </div>
-          <h5>Nosotros recomendamos un minimo de $5 (US) seria apropiado.</h5>
+          <h5>Nosotros recomendamos un mínimo de $5 (USD)</h5>
         </div>
       </div>
       <div class="details-content__actions">
